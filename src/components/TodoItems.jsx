@@ -10,9 +10,9 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
       <div className={`flex flex-col rounded-xl relative ${isComplete ? "bg-emerald-100 beforeAfterBorder_g" : "bg-yellow-50 beforeAfterBorder_y"}`}>
 
         {/* <div className='flex'> */}
-        <div className={`flex justify-between text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-t-md border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
+        <div className={`flex justify-between text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-lg border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
           <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
-          <div className={`bg-white px-1 rounded-[2px] border text-gray-500 cursor-pointer ${isComplete ? "border-emerald-300" : "border-yellow-300" }`}>
+          <div className={`bg-white px-1 rounded-[4px] border text-gray-500 cursor-pointer ${isComplete ? "border-emerald-300" : "border-yellow-300" }`}>
             <p>Edit</p>
           </div>
         </div>
