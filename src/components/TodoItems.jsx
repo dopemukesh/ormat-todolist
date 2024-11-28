@@ -6,22 +6,30 @@ import unTick from '../assets/icons/not_tick.svg'
 const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
   return (
     <>
-      <div className='flex items-center'>
-        <div className={`flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-emerald-50 border-emerald-300' : 'bg-white'}`}>
-          <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer' />
-          <div className='relative flex items-start justify-between w-full'>
-            {/* <p className={`absolute text-[10px] -top-5 left-4 py-1 px-2 rounded-full border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-400"} text-gray-100`}>
-              {isComplete ? "COMPLETED" : "IN PROGRESS"}
-            </p> */}
+      <div className={`flex flex-col rounded-xl ${isComplete ? "bg-emerald-100 border-emerald-300" : "bg-yellow-50"}`}>
 
+        <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-t-md  ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
+          {isComplete ? "COMPLETED" : "IN PROGRESS"}
+        </p>
+
+        <div className={`flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white border-emerald-300' : 'bg-white'}`}>
+
+
+          {/* <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
+            {isComplete ? "COMPLETED" : "IN PROGRESS"}
+          </p> */}
+
+
+          <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' />
+          <div className='relative flex items-start justify-between w-full'>
             <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto break-all ${isComplete ? "line-through text-gray-400" : ""}`}>
               {text}
             </p>
 
             <div className='flex items-center gap-2 w-fit justify-end'>
-              <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
+              {/* <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
                 {isComplete ? "COMPLETED" : "IN PROGRESS"}
-              </p>
+              </p> */}
               <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-gray-100 hover:bg-gray-200 active:bg-rose-500'>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path className='group-active:stroke-white' d="M20.5001 6H3.5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" />
