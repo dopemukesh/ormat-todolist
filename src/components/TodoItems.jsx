@@ -19,7 +19,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
             </p>
 
             <div className='flex items-center gap-2 w-fit justify-end'>
-              <p className={`text-[8px] whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
+              <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
                 {isComplete ? "COMPLETED" : "IN PROGRESS"}
               </p>
               <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-gray-100 hover:bg-gray-200 active:bg-rose-500'>
