@@ -75,7 +75,7 @@ const Todo = () => {
                 </header>
 
                 {/* ----- todo lists -----  */}
-                <div className={`lists overflow-y-scroll max-h-[500px] bg-gray-50 my-4 rounded-2xl flex flex-col gap-1 ${todoList.length > 0 ? 'p-1.5 border' : 'p-0'}`}>
+                <div className={`lists overflow-y-scroll max-h-[656px] bg-gray-50 my-4 rounded-2xl flex flex-col gap-1 ${todoList.length > 0 ? 'p-1.5 border' : 'p-0'}`}>
                     {todoList.map((item, index) => {
                         return <TodoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle} />
                     })}
