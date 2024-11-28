@@ -14,14 +14,14 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
               {isComplete ? "COMPLETED" : "IN PROGRESS"}
             </p> */}
 
-            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base ${isComplete ? "line-through text-gray-400" : ""}`}>
+            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto break-all ${isComplete ? "line-through text-gray-400" : ""}`}>
               {text}
             </p>
 
             <div className='flex items-center gap-2 w-fit justify-end'>
-              {/* <p className={`text-[8px] whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-400"} text-gray-100`}>
+              <p className={`text-[8px] whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-400"}`}>
                 {isComplete ? "COMPLETED" : "IN PROGRESS"}
-              </p> */}
+              </p>
               <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-gray-100 hover:bg-gray-200 active:bg-rose-500'>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path className='group-active:stroke-white' d="M20.5001 6H3.5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" />
