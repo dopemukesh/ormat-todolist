@@ -47,7 +47,7 @@ const Todo = () => {
     }, [todoList])
     return (
         <>
-            <div className='bg-white container px-4 w-[456px]'>
+            <div className='bg-white container px-4 w-[446px]'>
 
                 <header className='flex flex-col sticky top-0 z-50'>
                     {/* ----- title -----  */}
