@@ -7,7 +7,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
   return (
     <>
       <div className='flex items-center'>
-        <div className={`flex flex-1 rounded-xl p-2 border transition-all duration-500 ease-in ${isComplete ? 'bg-emerald-50 border-emerald-300' : 'bg-white'}`}>
+        <div className={`flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-emerald-50 border-emerald-300' : 'bg-white'}`}>
           <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer' />
           <div className='relative flex items-start justify-between w-full'>
             {/* <p className={`absolute text-[10px] -top-5 left-4 py-1 px-2 rounded-full border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-400"} text-gray-100`}>

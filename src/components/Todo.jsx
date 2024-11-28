@@ -65,7 +65,7 @@ const Todo = () => {
 
                     {/* ----- input box -----  */}
                     <div className='flex items-center justify-center w-full my-7 gap-2'>
-                        <input type="text" placeholder='Add your task' ref={inputRef} className='w-56 bg-gray-100 rounded-md border outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 text-sm focus:border-violet-500' />
+                        <input type="text" placeholder='Add your task' ref={inputRef} className='w-56 bg-gray-100 rounded-md border outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 text-sm focus:border-emerald-500' />
 
                         <button onClick={add} className='flex justify-center items-center gap-2 border-none rounded-md bg-emerald-500 active:bg-emerald-600 px-4 py-2 text-gray-100 text-sm font-medium whitespace-nowrap'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-plus "><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
