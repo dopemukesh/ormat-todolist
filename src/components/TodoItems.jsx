@@ -4,15 +4,21 @@ import unTick from '../assets/icons/not_tick.svg'
 // import deleteIcon from '../assets/icons/delete.svg'
 
 const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
+
   return (
     <>
-      <div className={`flex flex-col rounded-xl ${isComplete ? "bg-emerald-100 border-emerald-300" : "bg-yellow-50"}`}>
+      <div className={`flex flex-col rounded-xl relative ${isComplete ? "bg-emerald-100 beforeAfterBorder_g" : "bg-yellow-50 beforeAfterBorder_y"}`}>
 
-        <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-t-md  ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
-          {isComplete ? "COMPLETED" : "IN PROGRESS"}
-        </p>
+        {/* <div className='flex'> */}
+        <div className={`flex justify-between text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-t-md border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
+          <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
+          <div className={`bg-white px-1 rounded-[2px] border text-gray-500 cursor-pointer ${isComplete ? "border-emerald-300" : "border-yellow-300" }`}>
+            <p>Edit</p>
+          </div>
+        </div>
+        {/* </div> */}
 
-        <div className={`flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white border-emerald-300' : 'bg-white'}`}>
+        <div className={`z-[1] flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white border-emerald-300' : 'bg-white'}`}>
 
 
           {/* <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>

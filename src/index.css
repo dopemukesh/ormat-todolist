@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -13,7 +12,32 @@
   text-decoration: none;
 }
 
-.lists{
+.lists {
   scrollbar-width: none;
   scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .beforeAfterBorder {
+    @apply relative z-[1]; /* Ensure the parent element is positioned */
+  }
+  .beforeAfterBorder_y::before {
+    content: '';
+    @apply absolute w-[1px] h-[24px] -left-0 top-4 bg-yellow-300;
+  }
+
+  .beforeAfterBorder_y::after {
+    content: '';
+    @apply absolute w-[.5px] h-[24px] -right-0 top-4 bg-yellow-300;
+  }
+
+  .beforeAfterBorder_g::before {
+    content: '';
+    @apply absolute w-[1px] h-[24px] -left-0 top-4 bg-emerald-300;
+  }
+
+  .beforeAfterBorder_g::after {
+    content: '';
+    @apply absolute w-[.5px] h-[24px] -right-0 top-4 bg-emerald-300;
+  }
 }
