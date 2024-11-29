@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import tick from '../assets/icons/tick.svg'
 import unTick from '../assets/icons/not_tick.svg'
 // import deleteIcon from '../assets/icons/delete.svg'
 
-const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
+const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancelEdit, saveEdit, editTodoId, editText, setEditText }) => {
+
+  const isEditing = id === editTodoId;
+
+  const [showEditBox, setShowEditBox] = useState(false);
+
+  const handleEditClick = () => {
+    if (!isComplete) { // Allow editing only if the task is not complete
+      startEdit(id, text); // Set the editing state in the parent
+      setShowEditBox(true); // Show the EditBox
+    }
+  };
+
+  const handleCancelClick = () => {
+    cancelEdit(); // Reset edit state in the parent
+    setShowEditBox(false); // Hide the EditBox
+  };
+
+  const handleSaveClick = () => {
+    saveEdit(id); // Save the changes in the parent
+    setShowEditBox(false); // Hide the EditBox
+  };
 
   return (
     <>
@@ -12,10 +33,36 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
         {/* <div className='flex'> */}
         <div className={`flex justify-between text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-xl border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
           <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
-          <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-gray-500 cursor-pointer select-none ${isComplete ? "border-emerald-300" : "border-yellow-300" }`}>
-            <p>Edit</p>
+          <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-gray-500 cursor-pointer select-none ${isComplete ? "border-emerald-300" : "border-yellow-300"}`}>
+            <p onClick={handleEditClick}>Edit</p>
           </div>
         </div>
+
+        {/* editBox */}
+        {showEditBox && (
+          <div className='fixed inset-0 grid place-items-center bg-gray-800 bg-opacity-20 backdrop-blur-sm z-[400]'>
+            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-md border border-gray-400 bg-gray-200">
+              {/* Editable Text Field */}
+              <textarea
+                type="text"
+                value={editText}
+                onChange={(e) => setEditText(e.target.value)}
+                className="w-full px-2 py-1 border rounded-md text-sm min-h-24"
+              />
+
+              <div className='updateBtns flex gap-2 mt-4 py-1'>
+                <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-gray-500 cursor-pointer select-none border-emerald-500`}>
+                  <p onClick={handleSaveClick}>Save</p>
+                </div>
+
+                <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-rose-500 cursor-pointer select-none border-rose-500`}>
+                  <p onClick={handleCancelClick}>Cancel</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )}
         {/* </div> */}
 
         <div className={`z-[1] flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white border-emerald-300' : 'bg-white'}`}>

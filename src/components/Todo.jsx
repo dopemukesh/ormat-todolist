@@ -8,6 +8,9 @@ const Todo = () => {
 
     const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
 
+    const [editTodoId, setEditTodoId] = useState(null);
+    const [editText, setEditText] = useState("");
+
     const inputRef = useRef();
 
     const add = () => {
@@ -43,9 +46,32 @@ const Todo = () => {
         })
     }
 
+    
+    const startEdit = (id, text) => {
+        setEditTodoId(id);
+        setEditText(text);
+    };
+
+    const cancelEdit = () => {
+        setEditTodoId(null);
+        setEditText("");
+    };
+
+    const saveEdit = (id) => {
+        if (editText.trim() === "") return;
+
+        setTodoList((prevTodos) =>
+            prevTodos.map((todo) =>
+                todo.id === id ? { ...todo, text: editText } : todo
+            )
+        );
+        cancelEdit();
+    };
+
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todoList))
     }, [todoList])
+
     return (
         <>
             <div className='bg-white container px-4 w-full'>
@@ -78,7 +104,19 @@ const Todo = () => {
                 {/* ----- todo lists -----  */}
                 <div className={`lists overflow-y-scroll max-h-[656px] bg-gray-50 my-4 rounded-2xl flex flex-col gap-2 ${todoList.length > 0 ? 'p-1.5 border' : 'p-0'}`}>
                     {todoList.map((item, index) => {
-                        return <TodoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle} />
+                        return <TodoItems
+                            key={index}
+                            text={item.text}
+                            id={item.id}
+                            isComplete={item.isComplete}
+                            deleteTodo={deleteTodo}
+                            toggle={toggle}
+                            startEdit={startEdit}
+                            cancelEdit={cancelEdit}
+                            saveEdit={saveEdit}
+                            editTodoId={editTodoId}
+                            editText={editText}
+                            setEditText={setEditText} />
                     })}
                 </div>
                 {todoList.length > 0 ? "" : <p>No items found !</p>}
