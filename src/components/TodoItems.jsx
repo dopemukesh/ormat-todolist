@@ -31,9 +31,9 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
       <div className={`flex flex-col rounded-xl relative ${isComplete ? "bg-emerald-100 beforeAfterBorder_g" : "bg-yellow-50 beforeAfterBorder_y"}`}>
 
         {/* <div className='flex'> */}
-        <div className={`flex justify-between text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-xl border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
+        <div className={`flex justify-between items-center text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-xl border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
           <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
-          <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-gray-500 cursor-pointer select-none ${isComplete ? "border-emerald-300" : "border-yellow-300"}`}>
+          <div className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-gray-600"}`}>
             <p onClick={handleEditClick}>Edit</p>
           </div>
         </div>
@@ -41,21 +41,21 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         {/* editBox */}
         {showEditBox && (
           <div className='fixed inset-0 grid place-items-center bg-gray-800 bg-opacity-20 backdrop-blur-sm z-[400]'>
-            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-md border border-gray-400 bg-gray-200">
+            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-md border border-gray-400 bg-gray-100">
               {/* Editable Text Field */}
               <textarea
                 type="text"
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
-                className="w-full px-2 py-1 border rounded-md text-sm min-h-24"
+                className="w-full px-2 py-1 border outline-none outline-offset-0 flex-1 focus:border-emerald-500 rounded-md text-sm min-h-24"
               />
 
               <div className='updateBtns flex gap-2 mt-4 py-1'>
-                <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-gray-500 cursor-pointer select-none border-emerald-500`}>
+                <div className={`bg-emerald-500 active:bg-emerald-400 hover:bg-emerald-600 px-2 rounded-[4px] border text-white cursor-pointer select-none border-emerald-500`}>
                   <p onClick={handleSaveClick}>Save</p>
                 </div>
 
-                <div className={`bg-white hover:bg-gray-100 px-1 rounded-[4px] border text-rose-500 cursor-pointer select-none border-rose-500`}>
+                <div className={`bg-rose-500 active:bg-rose-400 hover:bg-rose-600 px-2 rounded-[4px] border text-white cursor-pointer select-none border-rose-500`}>
                   <p onClick={handleCancelClick}>Cancel</p>
                 </div>
 
