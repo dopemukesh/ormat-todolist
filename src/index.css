@@ -23,7 +23,7 @@
   }
   .beforeAfterBorder_y::before {
     content: '';
-    @apply absolute w-[.5px] h-[24px] -left-0 top-4 bg-yellow-300;
+    @apply absolute w-[1px] h-[24px] -left-0 top-4 bg-yellow-300;
   }
 
   .beforeAfterBorder_y::after {
@@ -33,7 +33,7 @@
 
   .beforeAfterBorder_g::before {
     content: '';
-    @apply absolute w-[.5px] h-[24px] -left-0 top-4 bg-emerald-300;
+    @apply absolute w-[1px] h-[24px] -left-0 top-4 bg-emerald-300;
   }
 
   .beforeAfterBorder_g::after {

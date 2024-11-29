@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import todoIcon from '../assets/icons/todoIcon.svg'
-import historyIcon from '../assets/icons/history.svg'
+// import todoIcon from '../assets/icons/todoIcon.svg'
+import todoIcon from '../assets/gradient-ball-logo.svg'
+import historyIcon from '../assets/icons/todoIcon.svg'
 import TodoItems from './TodoItems'
 
 const Todo = () => {
@@ -53,8 +54,8 @@ const Todo = () => {
                     {/* ----- title -----  */}
                     <div className='flex flex-grow w-full border-b-2 py-4 justify-between items-center'>
                         <div className='flex items-center gap-2'>
-                            <img src={todoIcon} alt="" className='w-7 p-1 bg-gray-200 rounded-md' />
-                            <h1 className='text-lg font-bold'>To Do List</h1>
+                            <img src={todoIcon} alt="" className='w-7 rounded-md' />
+                            <h1 className='text-lg font-bold'>Todo List</h1>
                         </div>
 
                         <div className='flex items-center gap-2'>
