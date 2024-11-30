@@ -25,7 +25,7 @@ const PopoverButton = () => {
                     <p className="text-center">
                         Your application is updated: <strong>v0.0.2</strong>. You are already using updated app.
                     </p>
-                    <button to='/' className="bg-gray-800 text-gray-100 px-4 py-2 rounded">
+                    <button className="bg-gray-800 text-gray-100 px-4 py-2 rounded">
                         <a href='/'>Close Now</a>
                     </button>
                 </div>
