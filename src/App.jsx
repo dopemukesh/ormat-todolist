@@ -5,15 +5,15 @@ import Todo from './components/Todo'
 // import Header from './components/Header'
 
 const App = () => {
-  // Assuming you have a way to check for the theme (e.g., dark or light mode)
-  const isDarkTheme = true;  // Replace with your actual theme state
-
   useEffect(() => {
+    // Select the meta tag for the theme color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    
+    // Set the theme color to white for light theme
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', isDarkTheme ? '#000000' : '#ffffff');
+      metaThemeColor.setAttribute('content', '#ffffff');
     }
-  }, [isDarkTheme]);
+  }, []);
 
   return (
     <>
