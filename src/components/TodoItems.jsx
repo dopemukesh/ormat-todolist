@@ -75,7 +75,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
 
           <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' />
           <div className='relative flex items-start justify-between w-full'>
-            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto break-all select-none ${isComplete ? "line-through text-gray-400" : ""}`}>
+            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto select-none ${isComplete ? "line-through text-gray-400" : ""}`}>
               {text}
             </p>
 
