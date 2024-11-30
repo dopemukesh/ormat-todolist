@@ -41,21 +41,22 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         {/* editBox */}
         {showEditBox && (
           <div className='fixed inset-0 grid place-items-center bg-gray-800 bg-opacity-20 backdrop-blur-sm z-[400]'>
-            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-md border border-gray-400 bg-gray-100">
+            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-xl border border-gray-400 bg-gray-100">
               {/* Editable Text Field */}
               <textarea
                 type="text"
                 value={editText}
+                placeholder='Your text will go here'
                 onChange={(e) => setEditText(e.target.value)}
                 className="w-full px-2 py-1 border outline-none outline-offset-0 flex-1 focus:border-emerald-500 rounded-md text-sm min-h-24"
               />
 
               <div className='updateBtns flex gap-2 mt-4 py-1'>
-                <div className={`bg-emerald-500 active:bg-emerald-400 hover:bg-emerald-600 px-2 rounded-[4px] border text-white cursor-pointer select-none border-emerald-500`}>
+                <div className={`bg-emerald-500 active:bg-emerald-400 hover:bg-emerald-600 px-3.5 py-1 rounded-md border border-emerald-600 text-white cursor-pointer select-none`}>
                   <p onClick={handleSaveClick}>Save</p>
                 </div>
 
-                <div className={`bg-rose-500 active:bg-rose-400 hover:bg-rose-600 px-2 rounded-[4px] border text-white cursor-pointer select-none border-rose-500`}>
+                <div className={`bg-rose-500 active:bg-rose-400 hover:bg-rose-600 px-3.5 py-1 rounded-md border border-rose-600 text-white cursor-pointer select-none`}>
                   <p onClick={handleCancelClick}>Cancel</p>
                 </div>
 

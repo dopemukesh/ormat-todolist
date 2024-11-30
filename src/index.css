@@ -17,6 +17,29 @@
   scroll-behavior: smooth;
 }
 
+
+/* Keyframes */
+@keyframes rotate-center-alternate {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes text-focus-in {
+  0% { filter: blur(12px); opacity: 0; }
+  100% { filter: blur(0px); opacity: 1; }
+}
+
+/* Animations */
+.rotate-center-alternate {
+  animation: rotate-center-alternate 2s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1s infinite alternate;
+}
+
+.text-focus-in-normal {
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+
+
 @layer utilities {
   .beforeAfterBorder {
     @apply relative z-[1]; /* Ensure the parent element is positioned */

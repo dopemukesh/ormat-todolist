@@ -8,8 +8,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Todo List App',
-        short_name: 'TodoList',
+        name: 'Ormat TodoList App',
+        short_name: 'Ormat TodoList',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',

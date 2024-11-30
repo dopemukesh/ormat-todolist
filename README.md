@@ -13,7 +13,7 @@ A simple and elegant To-Do app built with React and Vite. This app helps you man
 ---
 
 ## **Live Demo**
-[Check the live app here](https://your-live-demo-link.com)
+[Check the live app here](https://todo-list-seven-bay-50.vercel.app/)
 
 ---
 
@@ -31,7 +31,7 @@ Make sure you have the following installed:
 ### **Step 1: Clone the Repository**
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/dopemukesh/todoList.git
+git clone https://github.com/dopemukesh/ormat-todolist.git
 ```
 
 ---
@@ -39,7 +39,7 @@ git clone https://github.com/dopemukesh/todoList.git
 ### **Step 2: Navigate to the Project Directory**
 Move into the project folder:
 ```bash
-cd todoList
+cd ormat-todolist
 ```
 
 ---
@@ -91,7 +91,7 @@ npm run preview
 
 ## **Folder Structure**
 ```
-todoList/
+ormat-todolist/
 ├── public/          # Static assets (e.g., icons, images)
 ├── src/             # Source code
 │   ├── components/  # Reusable components
