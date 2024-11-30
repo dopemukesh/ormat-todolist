@@ -24,6 +24,11 @@
   100% { transform: rotate(360deg); }
 }
 
+@keyframes rotate-center{
+  0% { transform: rotate(0); }
+  100% { transform: rotate(180deg); }
+}
+
 @keyframes text-focus-in {
   0% { filter: blur(12px); opacity: 0; }
   100% { filter: blur(0px); opacity: 1; }
@@ -32,6 +37,10 @@
 /* Animations */
 .rotate-center-alternate {
   animation: rotate-center-alternate 2s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1s infinite alternate;
+}
+
+.rotate-center {
+  transition: rotate-center 2s linear;
 }
 
 .text-focus-in-normal {

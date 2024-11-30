@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Todo from './components/Todo';
 import Histry from './components/Histry';
 import Header from './components/Header';
+import BottomBar from './components/BottomBar';
 
 const App = () => {
   useEffect(() => {
@@ -18,16 +19,19 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      {/* Header Component */}
-      {/* <Header /> */}
-      <main className="flex justify-center overflow-hidden">
-        <Routes>
-          <Route path="/" element={<Todo />} />
-          <Route path="/histry" element={<Histry />} />
-        </Routes>
-      </main>
-    </Router>
+    <>
+      <Router>
+        {/* Header Component */}
+        {/* <Header /> */}
+        <main className="flex justify-center overflow-hidden">
+          <Routes>
+            <Route path="/" element={<Todo />} />
+            <Route path="/histry" element={<Histry />} />
+          </Routes>
+        </main>
+      </Router>
+      <BottomBar/>
+    </>
   );
 };
 
