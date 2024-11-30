@@ -1,6 +1,3 @@
-Here’s the content you provided in **README.md** format:
-
-```markdown
 # To-Do App
 
 A simple and elegant To-Do app built with React and Vite. This app helps you manage your daily tasks efficiently and with a minimalistic design.
