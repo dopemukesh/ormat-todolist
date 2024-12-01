@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Router>
         {/* Header Component */}
-        {/* <Header /> */}
+        <Header />
         <main className="flex justify-center overflow-hidden">
           <Routes>
             <Route path="/" element={<Todo />} />

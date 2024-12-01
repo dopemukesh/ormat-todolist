@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import tick from '../assets/icons/tick.svg'
 import unTick from '../assets/icons/not_tick.svg'
 // import deleteIcon from '../assets/icons/delete.svg'
+import { format } from 'date-fns'
 
 const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancelEdit, saveEdit, editTodoId, editText, setEditText }) => {
 
@@ -33,9 +34,17 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         {/* <div className='flex'> */}
         <div className={`flex justify-between items-center text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-xl border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
           <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
-          <div className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-gray-600"}`}>
-            <p onClick={handleEditClick}>Edit</p>
+
+          <div className='flex items-center gap-2'>
+            <span className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-gray-600"}`}>
+              Time: {format(new Date(id), 'h:mm a')}
+            </span>
+
+            <div className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-gray-600"}`}>
+              <p onClick={handleEditClick}>Edit</p>
+            </div>
           </div>
+
         </div>
 
         {/* editBox */}
@@ -67,11 +76,6 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         {/* </div> */}
 
         <div className={`z-[1] flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white border-emerald-300' : 'bg-white'}`}>
-
-
-          {/* <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
-            {isComplete ? "COMPLETED" : "IN PROGRESS"}
-          </p> */}
 
 
           <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' />

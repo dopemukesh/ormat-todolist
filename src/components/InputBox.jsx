@@ -8,7 +8,7 @@ const InputBox = ({ inputRef, add }) => {
         <input
           type="text"
           placeholder='Add your task'
-          className='w-56 bg-gray-50 rounded-md border outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 text-sm focus:border-emerald-500'
+          className='w-full bg-gray-50 rounded-md border outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 text-sm focus:border-emerald-500'
           ref={inputRef}
         />
         <button
