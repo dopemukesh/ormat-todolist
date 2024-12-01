@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import TodoItems from './TodoItems';
 import Header from './Header';
 import InputBox from './InputBox';
+import { format } from 'date-fns';
 
 const Todo = () => {
   const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
@@ -20,6 +21,8 @@ const Todo = () => {
       id: Date.now(),
       text: inputText,
       isComplete: false,
+      createdAt: new Date().toISOString(),
+      expiresAt: new Date(new Date().setHours(24, 0, 0, 0)).toISOString(),
     };
     setTodoList((prev) => [...prev, newTodo]);
     inputRef.current.value = "";
@@ -61,6 +64,25 @@ const Todo = () => {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList]);
+
+  useEffect(() => {
+    const checkExpiration = () => {
+      const now = new Date();
+      setTodoList(prevTodos => 
+        prevTodos.map(todo => {
+          if (new Date(todo.expiresAt) <= now && !todo.isComplete) {
+            return { ...todo, expired: true };
+          }
+          return todo;
+        })
+      );
+    };
+
+    checkExpiration();
+    const interval = setInterval(checkExpiration, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>

@@ -72,4 +72,51 @@
     content: '';
     @apply absolute w-[.5px] h-[24px] -right-0 top-4 bg-emerald-300;
   }
+
+  .beforeAfterBorder_r::before {
+    content: '';
+    @apply absolute w-[.5px] h-[24px] -left-0 top-4 bg-rose-300;
+  }
+
+  .beforeAfterBorder_r::after {
+    content: '';
+    @apply absolute w-[.5px] h-[24px] -right-0 top-4 bg-rose-300;
+  }
+}
+
+/* Add these styles for the calendar */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #10b981;
+  --rdp-background-color: #e5e7eb;
+  margin: 0;
+}
+
+.rdp-day_selected:not([disabled]) { 
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_selected:hover:not([disabled]) {
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-selected .rdp-day_button{
+  background: #10b981 !important;
+  color: #fff !important;
+  border: 2px solid #059669 !important;
+  border-radius: 10px !important;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+.rdp-today:not(.rdp-outside) {
+  background: #d1fae5be !important;
+  color: #10b981 !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+}
+
+.rdp-chevron{
+  fill: #10b981 !important;
 }

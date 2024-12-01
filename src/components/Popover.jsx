@@ -19,7 +19,7 @@ const PopoverButton = () => {
             </button>
 
             {isPopoverOpen && (
-                <div id="my-popover" className="absolute flex flex-col items-center gap-4 bottom-20 w-[406px] bg-emerald-500/5 backdrop-blur-md border border-emerald-300 text-gray-800 p-4 rounded-xl shadow-lg">
+                <div id="my-popover" className="absolute flex flex-col items-center gap-4 bottom-20 w-[406px] bg-white border-2 border-fuchsia-300 text-gray-800 p-4 rounded-xl shadow-lg">
                     <img src={update} alt="logo" className="w-14 animate-pulse transition-all duration-700" />
                     <h2 className="font-bold mb-2">Updated</h2>
                     <p className="text-center">
