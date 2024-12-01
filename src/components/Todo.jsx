@@ -69,11 +69,14 @@ const Todo = () => {
     const checkExpiration = () => {
       const now = new Date();
       setTodoList(prevTodos =>
-        prevTodos.map(todo => {
-          if (new Date(todo.expiresAt) <= now && !todo.isComplete) {
-            return { ...todo, expired: true };
+        prevTodos.filter(todo => {
+          const isExpired = new Date(todo.expiresAt) <= now && !todo.isComplete;
+          if (isExpired) {
+            const expiredTasks = JSON.parse(localStorage.getItem('expiredTasks') || '[]');
+            localStorage.setItem('expiredTasks', JSON.stringify([...expiredTasks, { ...todo, expired: true }]));
+            return false;
           }
-          return todo;
+          return true;
         })
       );
     };

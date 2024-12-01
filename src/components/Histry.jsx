@@ -100,22 +100,21 @@ const Histry = () => {
     ];
 
     useEffect(() => {
-        // Get todos from localStorage or use dummy data if empty
-        const todos = JSON.parse(localStorage.getItem('todos') || '[]');
-        const allTasks = [...todos, ...dummyExpiredTasks];
+        // Get expired tasks from localStorage
+        const expiredTasksFromStorage = JSON.parse(localStorage.getItem('expiredTasks') || '[]');
+        
+        // Only use dummy data if there are no expired tasks in storage
+        const allTasks = expiredTasksFromStorage.length > 0 
+            ? expiredTasksFromStorage 
+            : dummyExpiredTasks;
 
-        // Filter only expired todos for selected date
+        // Filter tasks for selected date
         const filteredExpiredTodos = allTasks.filter(todo => {
             const todoDate = new Date(todo.createdAt);
-            const isExpired = todo.expired === true; // Only get expired tasks
-
-            // Check if the task was created on the selected date
-            const isOnSelectedDate = isWithinInterval(todoDate, {
+            return isWithinInterval(todoDate, {
                 start: startOfDay(selectedDate),
                 end: endOfDay(selectedDate)
             });
-
-            return isExpired && isOnSelectedDate;
         });
 
         setExpiredTasks(filteredExpiredTodos);
