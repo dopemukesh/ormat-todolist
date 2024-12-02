@@ -5,7 +5,12 @@ import InputBox from './InputBox';
 import { format } from 'date-fns';
 
 const Todo = () => {
-  const [todoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+  const [todoList, setTodoList] = useState(() => {
+    const userTodos = localStorage.getItem(`todos_${currentUser.email}`);
+    return userTodos ? JSON.parse(userTodos) : [];
+  });
   const [editTodoId, setEditTodoId] = useState(null);
   const [editText, setEditText] = useState("");
   const inputRef = useRef();
@@ -62,8 +67,8 @@ const Todo = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoList));
-  }, [todoList]);
+    localStorage.setItem(`todos_${currentUser.email}`, JSON.stringify(todoList));
+  }, [todoList, currentUser.email]);
 
   useEffect(() => {
     const checkExpiration = () => {
@@ -72,8 +77,8 @@ const Todo = () => {
         prevTodos.filter(todo => {
           const isExpired = new Date(todo.expiresAt) <= now && !todo.isComplete;
           if (isExpired) {
-            const expiredTasks = JSON.parse(localStorage.getItem('expiredTasks') || '[]');
-            localStorage.setItem('expiredTasks', JSON.stringify([...expiredTasks, { ...todo, expired: true }]));
+            const expiredTasks = JSON.parse(localStorage.getItem(`expiredTasks_${currentUser.email}`) || '[]');
+            localStorage.setItem(`expiredTasks_${currentUser.email}`, JSON.stringify([...expiredTasks, { ...todo, expired: true }]));
             return false;
           }
           return true;
@@ -85,7 +90,7 @@ const Todo = () => {
     const interval = setInterval(checkExpiration, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentUser.email]);
 
   return (
     <>

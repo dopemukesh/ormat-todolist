@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
 import Calendar from './Calendar';
 import { format, isWithinInterval, startOfDay, endOfDay, subDays } from 'date-fns';
+import { BackIcon } from '../assets/icons/icons';
+import { NavLink } from 'react-router-dom';
 
 const Histry = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const [expiredTasks, setExpiredTasks] = useState(JSON.parse(localStorage.getItem(`expiredTasks_${currentUser.email}`) || '[]'));
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [expiredTasks, setExpiredTasks] = useState([]);
 
     // Dummy expired tasks data
     const dummyExpiredTasks = [
@@ -31,7 +33,7 @@ const Histry = () => {
             createdAt: subDays(new Date(), 2).toISOString(),
             expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
             expired: true,
-            isComplete: false
+            isComplete: true
         },
         {
             id: 4,
@@ -43,54 +45,6 @@ const Histry = () => {
         },
         {
             id: 5,
-            text: "This is a test task that is expired and incomplete , you can see your future expired tasks here",
-            createdAt: subDays(new Date(), 2).toISOString(),
-            expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: false
-        },
-        {
-            id: 6,
-            text: "This is a test task that is expired and incomplete , you can see your future expired tasks here",
-            createdAt: subDays(new Date(), 2).toISOString(),
-            expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: false
-        },
-        {
-            id: 7,
-            text: "This is a test task that is expired and incomplete , you can see your future expired tasks here",
-            createdAt: subDays(new Date(), 2).toISOString(),
-            expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: false
-        },
-        {
-            id: 8,
-            text: "This is a test task that is expired and incomplete , you can see your future expired tasks here",
-            createdAt: subDays(new Date(), 2).toISOString(),
-            expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: false
-        },
-        {
-            id: 9,
-            text: "Review team updates",
-            createdAt: subDays(new Date(), 2).toISOString(),
-            expiresAt: subDays(new Date(), 2).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: true
-        },
-        {
-            id: 10,
-            text: "Update documentation and audit the code",
-            createdAt: subDays(new Date(), 3).toISOString(),
-            expiresAt: subDays(new Date(), 3).setHours(23, 59, 59, 999),
-            expired: true,
-            isComplete: false
-        },
-        {
-            id: 11,
             text: "Client meeting preparation and update the code",
             createdAt: subDays(new Date(), 3).toISOString(),
             expiresAt: subDays(new Date(), 3).setHours(23, 59, 59, 999),
@@ -102,10 +56,10 @@ const Histry = () => {
     useEffect(() => {
         // Get expired tasks from localStorage
         const expiredTasksFromStorage = JSON.parse(localStorage.getItem('expiredTasks') || '[]');
-        
+
         // Only use dummy data if there are no expired tasks in storage
-        const allTasks = expiredTasksFromStorage.length > 0 
-            ? expiredTasksFromStorage 
+        const allTasks = expiredTasksFromStorage.length > 0
+            ? expiredTasksFromStorage
             : dummyExpiredTasks;
 
         // Filter tasks for selected date
@@ -121,12 +75,16 @@ const Histry = () => {
     }, [selectedDate]);
 
     return (
-        <div className='bg-white flex flex-grow max-w-[1024px] flex-1 px-4 pb-12'>
-            {/* <Header /> */}
-            <div className='grid md:grid-cols-2 md:place-items-start place-items-center justify-center gap-8 my-8'>
+        <div className='bg-white flex flex-col flex-grow max-w-[1024px] flex-1 px-4 pb-12'>
+            <div className='flex items-center gap-2 py-2'>
+                <NavLink to="/">
+                    <img src={BackIcon} alt="BackIcon" className="w-8 p-1 bg-gray-100 border rounded-md active:bg-gray-200" />
+                </NavLink>
+            </div>
+            <div className='grid md:grid-cols-2 md:place-items-start justify-center gap-8 mb-8'>
                 {/* Calendar Section */}
                 <div className='rounded-lg grid place-items-center'>
-                    <div className='bg-gray-50 border-dashed border border-gray-200 p-4 rounded-xl'>
+                    <div className='bg-gray-50 w-full border-dashed border border-gray-200 p-4 rounded-xl'>
                         <Calendar
                             selectedDate={selectedDate}
                             onDateSelect={setSelectedDate}
