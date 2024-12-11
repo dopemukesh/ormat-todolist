@@ -131,7 +131,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
                   onClick={() => onMoveItem(id, 'up')}
                   className='cursor-pointer select-none'
                 >
-                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-emerald-200 bg-emerald-100 hover:bg-emerald-200 active:bg-emerald-50'>
+                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-emerald-200 bg-emerald-100 md:hover:bg-emerald-200 active:bg-emerald-50'>
                     <img src={upArrow} alt="" />
                   </div>
                 </div>
@@ -140,7 +140,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
                   onClick={() => onMoveItem(id, 'down')}
                   className='cursor-pointer select-none'
                 >
-                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-rose-200  bg-rose-100 hover:bg-rose-200 active:bg-rose-50'>
+                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-rose-200  bg-rose-100 md:hover:bg-rose-200 active:bg-rose-50'>
                     <img src={dnArrow} alt="" />
                   </div>
                 </div>
