@@ -67,7 +67,7 @@ const Menu = () => {
                     </div>
 
                     {/* Notifications Section */}
-                    <div className="p-4">
+                    <div className="p-4 opacity-40 pointer-events-none">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
@@ -97,7 +97,7 @@ const Menu = () => {
                     </div>
 
                     {/* Theme Section */}
-                    <div className="p-4 opacity-50 pointer-events-none">
+                    <div className="p-4 opacity-40 pointer-events-none">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">

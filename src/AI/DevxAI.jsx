@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 
 const DevxAI = () => {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   const [messages, setMessages] = useState(() => {
-    const savedMessages = localStorage.getItem('chatMessages');
+    const savedMessages = localStorage.getItem(`chatMessages_${currentUser.email}`);
     return savedMessages ? JSON.parse(savedMessages) : [];
   });
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem('chatMessages', JSON.stringify(messages));
-  }, [messages]);
+    localStorage.setItem(`chatMessages_${currentUser.email}`, JSON.stringify(messages));
+  }, [messages, currentUser.email]);
 
   const handleClearChat = () => {
     setMessages([]);
-    localStorage.removeItem('chatMessages');
+    localStorage.removeItem(`chatMessages_${currentUser.email}`);
   };
 
   const handleSubmit = async (e) => {

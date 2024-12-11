@@ -54,8 +54,8 @@ const Histry = () => {
     ];
 
     useEffect(() => {
-        // Get expired tasks from localStorage
-        const expiredTasksFromStorage = JSON.parse(localStorage.getItem('expiredTasks') || '[]');
+        // Get expired tasks from localStorage with correct key
+        const expiredTasksFromStorage = JSON.parse(localStorage.getItem(`expiredTasks_${currentUser.email}`) || '[]');
 
         // Only use dummy data if there are no expired tasks in storage
         const allTasks = expiredTasksFromStorage.length > 0
@@ -72,7 +72,12 @@ const Histry = () => {
         });
 
         setExpiredTasks(filteredExpiredTodos);
-    }, [selectedDate]);
+    }, [selectedDate, currentUser.email]);
+
+    const clearAllExpiredTasks = () => {
+        localStorage.setItem(`expiredTasks_${currentUser.email}`, '[]');
+        setExpiredTasks([]);
+    };
 
     return (
         <div className='bg-white flex flex-col flex-grow max-w-[1024px] flex-1 px-4 pb-12'>
@@ -94,9 +99,19 @@ const Histry = () => {
 
                 {/* Expired Tasks Section */}
                 <div className='p-4 rounded-lg'>
-                    <h2 className='text-xl font-semibold mb-4'>
-                        Expired Tasks for {format(selectedDate, 'MMMM d, yyyy')}
-                    </h2>
+                    <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 mb-4'>
+                        <h2 className='text-lg sm:text-xl font-semibold'>
+                            Expired Tasks for {format(selectedDate, 'MMMM d, yyyy')}
+                        </h2>
+                        {expiredTasks.length > 0 && (
+                            <button 
+                                onClick={clearAllExpiredTasks}
+                                className='self-end px-3 py-1.5 sm:py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600 active:bg-red-400 whitespace-nowrap'
+                            >
+                                Clear All
+                            </button>
+                        )}
+                    </div>
 
                     {expiredTasks.length === 0 ? (
                         <p className='text-gray-500'>No expired tasks found for this date.</p>

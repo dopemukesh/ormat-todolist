@@ -10,7 +10,8 @@ const Profile = () => {
         name: '',
         email: '',
         password: '',
-        bio: ''
+        bio: '',
+        profilePic: ''
     });
     const [error, setError] = useState('');
 
@@ -36,7 +37,8 @@ const Profile = () => {
             name: user.name || '',
             email: user.email || '',
             password: user.password || '',
-            bio: user.bio || ''
+            bio: user.bio || '',
+            profilePic: user.profilePic || ''
         });
     }, [navigate]);
 
@@ -46,6 +48,20 @@ const Profile = () => {
             ...prevState,
             [name]: value
         }));
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData(prevState => ({
+                    ...prevState,
+                    profilePic: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = (e) => {
@@ -84,7 +100,8 @@ const Profile = () => {
             localStorage.setItem('currentUser', JSON.stringify({
                 name: formData.name,
                 email: formData.email,
-                bio: formData.bio
+                bio: formData.bio,
+                profilePic: formData.profilePic
             }));
 
             setUserData({ ...formData });
@@ -106,7 +123,7 @@ const Profile = () => {
     return (
         <div className="min-h-screen bg-gray-50 w-full md:max-w-xl py-8 px-4 sm:px-6">
             <div className="max-w-lg mx-auto">
-                <div className="bg-white shadow rounded-lg p-6 overflow-clip">
+                <div className="bg-white shadow rounded-2xl p-6 overflow-clip border">
                     <div className="flex justify-between items-center mb-6">
                         <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
                         <button
@@ -122,6 +139,30 @@ const Profile = () => {
                             {error}
                         </div>
                     )}
+
+                    {/* Profile Picture Section */}
+                    <div className="flex justify-center mb-6">
+                        <div className="relative">
+                            <img
+                                src={userData.profilePic || 'https://via.placeholder.com/150'}
+                                alt="Profile"
+                                className="w-32 h-32 rounded-full object-cover border-4 border-gray-200"
+                            />
+                            {isEditing && (
+                                <label className="absolute bottom-0 right-0 bg-emerald-500 p-2 rounded-full cursor-pointer hover:bg-emerald-600">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        className="hidden"
+                                    />
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                </label>
+                            )}
+                        </div>
+                    </div>
 
                     {isEditing ? (
                         <form onSubmit={handleSubmit}>
