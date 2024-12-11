@@ -121,7 +121,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 w-full md:max-w-xl py-8 px-4 sm:px-6">
+        <div className="min-h-screen bg-gray-50 w-full md:max-w-xl py-8 px-4 sm:px-6 select-none">
             <div className="max-w-lg mx-auto">
                 <div className="bg-white shadow rounded-2xl p-6 overflow-clip border">
                     <div className="flex justify-between items-center mb-6">

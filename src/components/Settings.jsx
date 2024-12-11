@@ -33,7 +33,7 @@ const Menu = () => {
     }
 
     return (
-        <div className="min-h-screen w-full md:max-w-md bg-gray-50 py-8 px-4 sm:px-6">
+        <div className="min-h-screen w-full md:max-w-md bg-gray-50 py-8 px-4 sm:px-6 select-none">
             {/* <div className="flex items-center gap-2 py-2 mb-4">
                 <NavLink to="/">
                     <img src={BackIcon} alt="BackIcon" className="w-8 p-1 bg-gray-100 border rounded-md active:bg-gray-200" />
@@ -42,7 +42,7 @@ const Menu = () => {
 
             <div className="max-w-lg mx-auto">
                 <h1 className="text-2xl font-bold text-gray-900 mb-6">Settings</h1>
-                
+
                 <div className="bg-white shadow rounded-lg divide-y divide-gray-200">
                     {/* Profile Section */}
                     <div className="p-4">
@@ -67,7 +67,7 @@ const Menu = () => {
                     </div>
 
                     {/* Notifications Section */}
-                    <div className="p-4 opacity-40 pointer-events-none">
+                    <div className="p-4 ">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
@@ -85,7 +85,7 @@ const Menu = () => {
                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-emerald-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
                             </label>
                         </div>
-                        
+
                         {notifications && (
                             <div className="mt-4 ml-9">
                                 <label className="flex items-center space-x-3">
@@ -131,7 +131,7 @@ const Menu = () => {
                                     <p className="text-sm text-gray-500">Get help or contact support</p>
                                 </div>
                             </div>
-                            <a href="mailto:support@ormat.com" className="text-emerald-500 hover:text-emerald-600">
+                            <a href="mailto:dope.mukeshyadav@gmail.com" className="text-emerald-500 hover:text-emerald-600">
                                 Contact
                             </a>
                         </div>

@@ -80,7 +80,7 @@ const Histry = () => {
     };
 
     return (
-        <div className='bg-white flex flex-col flex-grow max-w-[1024px] flex-1 px-4 pb-12'>
+        <div className='bg-white flex flex-col flex-grow max-w-[1024px] flex-1 px-4 pb-12 select-none'>
             <div className='flex items-center gap-2 py-2'>
                 <NavLink to="/">
                     <img src={BackIcon} alt="BackIcon" className="w-8 p-1 bg-gray-100 border rounded-md active:bg-gray-200" />
