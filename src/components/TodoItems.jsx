@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import tick from '../assets/icons/tick.svg'
 import unTick from '../assets/icons/not_tick.svg'
-// import deleteIcon from '../assets/icons/delete.svg'
+import upArrow from '../assets/icons/upArrow-icon.svg'
+import dnArrow from '../assets/icons/downArrow-icon.svg'
 import { format } from 'date-fns'
 
-const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancelEdit, saveEdit, editTodoId, editText, setEditText, expiresAt }) => {
+const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancelEdit, saveEdit, editTodoId, editText, setEditText, expiresAt, onMoveItem }) => {
 
   const isEditing = id === editTodoId;
 
@@ -70,7 +71,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
             <span className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-gray-600"}`}>
               Created: {format(new Date(id), 'h:mm a')}
             </span>
-            
+
             <span className={`bg-white hover:bg-gray-100 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-gray-300" : "border-yellow-300 text-red-500"}`}>
               Expires in: {timeLeft}
             </span>
@@ -123,6 +124,29 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
               {/* <p className={`text-[8px] font-medium whitespace-nowrap py-1 px-2 rounded-md border ${isComplete ? "bg-emerald-100 border-emerald-500 text-emerald-500" : "bg-yellow-50 border-yellow-400 text-yellow-500"}`}>
                 {isComplete ? "COMPLETED" : "IN PROGRESS"}
               </p> */}
+
+              {/* Up Down button */}
+              <div id='upDownArrow' className='flex gap-1'>
+                <div
+                  onClick={() => onMoveItem(id, 'up')}
+                  className='cursor-pointer select-none'
+                >
+                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-emerald-200 bg-emerald-100 hover:bg-emerald-200 active:bg-emerald-50'>
+                    <img src={upArrow} alt="" />
+                  </div>
+                </div>
+                
+                <div
+                  onClick={() => onMoveItem(id, 'down')}
+                  className='cursor-pointer select-none'
+                >
+                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-rose-200  bg-rose-100 hover:bg-rose-200 active:bg-rose-50'>
+                    <img src={dnArrow} alt="" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Delete button */}
               <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-gray-100 hover:bg-gray-200 active:bg-rose-500'>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path className='group-active:stroke-white' d="M20.5001 6H3.5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" />

@@ -15,7 +15,7 @@ const Todo = () => {
   const [editText, setEditText] = useState("");
   const inputRef = useRef();
 
-  const add = (expirationMs = null) => {
+  const add = (expirationMs = 24 * 60 * 60 * 1000) => {
     const inputText = inputRef.current.value.trim();
 
     if (inputText === "") {
@@ -23,17 +23,12 @@ const Todo = () => {
     }
 
     const now = new Date();
-    const midnight = new Date();
-    midnight.setHours(24, 0, 0, 0);
-    
     const newTodo = {
       id: now.getTime(),
       text: inputText,
       isComplete: false,
       createdAt: now.toISOString(),
-      expiresAt: expirationMs 
-        ? new Date(now.getTime() + expirationMs).toISOString()
-        : midnight.toISOString(),
+      expiresAt: new Date(now.getTime() + expirationMs).toISOString(),
     };
     setTodoList((prev) => [...prev, newTodo]);
     inputRef.current.value = "";
@@ -70,6 +65,27 @@ const Todo = () => {
       )
     );
     cancelEdit();
+  };
+
+  const handleMoveItem = (id, direction) => {
+    setTodoList(prevTodos => {
+      const currentIndex = prevTodos.findIndex(todo => todo.id === id);
+      if (
+        (direction === 'up' && currentIndex === 0) || 
+        (direction === 'down' && currentIndex === prevTodos.length - 1)
+      ) {
+        return prevTodos; // Don't move if at the edges
+      }
+
+      const newTodos = [...prevTodos];
+      const targetIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+      
+      // Swap items
+      [newTodos[currentIndex], newTodos[targetIndex]] = 
+      [newTodos[targetIndex], newTodos[currentIndex]];
+      
+      return newTodos;
+    });
   };
 
   useEffect(() => {
@@ -131,6 +147,7 @@ const Todo = () => {
               editTodoId={editTodoId}
               editText={editText}
               setEditText={setEditText}
+              onMoveItem={handleMoveItem}
             />
           ))}
         </div>

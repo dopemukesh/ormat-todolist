@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom'
 import logo from '../assets/gradient-ball-logo.svg';
 import update from '../assets/icons/update.svg';
-import { NavLink } from 'react-router-dom';
+import packageJson from '../../package.json';
 
 const PopoverButton = () => {
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -23,7 +22,7 @@ const PopoverButton = () => {
                     <img src={update} alt="logo" className="w-14 animate-pulse transition-all duration-700" />
                     <h2 className="font-bold mb-2">Updated</h2>
                     <p className="text-center">
-                        Your application is updated: <strong>v0.0.3</strong>. You are already using updated app.
+                        Your application is updated: <strong>v{packageJson.version}</strong>. You are already using updated app.
                     </p>
                     <button className="bg-gray-800 text-gray-100 px-4 py-2 rounded">
                         <a href='/'>Close Now</a>
