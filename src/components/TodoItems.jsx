@@ -61,7 +61,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
 
   return (
     <>
-      <div className={`flex flex-col rounded-xl relative ${isComplete ? "bg-emerald-100 beforeAfterBorder_g" : "bg-yellow-50 beforeAfterBorder_y"}`}>
+      <div className={`flex flex-col rounded-xl relative ${isComplete ? "bg-emerald-100 beforeAfterBorder_g" : "bg-yellow-50 beforeAfterBorder_y"} select-none`}>
 
         {/* <div className='flex'> */}
         <div className={`flex justify-between items-center text-[10px] leading-4 font-medium whitespace-nowrap py-1 px-2 rounded-t-xl border border-b-0 ${isComplete ? "bg-emerald-100 border-emerald-300 text-emerald-500" : "bg-yellow-50 border-yellow-300 text-yellow-500"}`}>
