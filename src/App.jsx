@@ -13,6 +13,7 @@ import Notification from './Profiles/Notification';
 import Login from './Profiles/Login';
 import Signup from './Profiles/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
+import Error404 from './Errors/Error404';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem('currentUser') ? true : false
@@ -41,6 +42,7 @@ const App = () => {
 
             {/* Protected Routes */}
             <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+
               <Route path="/" element={<Todo />} />
               <Route path="/histry" element={<Histry />} />
               <Route path="/settings" element={<Settings />} />
@@ -48,6 +50,9 @@ const App = () => {
               <Route path="/profile" element={<Profile />} />
               <Route path="/notification" element={<Notification />} />
             </Route>
+            
+            {/* 404 Error Route */}
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </main>
         <BottomBar />

@@ -34,17 +34,17 @@ const DevxAI = () => {
     setIsLoading(true);
 
     try {
-      // Call Hugging Face Inference API
+      // Call Google Gemini API
       const response = await fetch(
-        'https://api-inference.huggingface.co/models/facebook/seamless-m4t-v2-large',
+        'https://gemini.googleapis.com/v1/models/gemini:generate',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE_API_KEY}`,
+            Authorization: `Bearer ${import.meta.env.VITE_GOOGLE_GEMINI_API_KEY}`,
           },
           body: JSON.stringify({
-            inputs: inputMessage.trim(), // Send the user's message as input
+            prompt: inputMessage.trim(), // Send the user's message as input
           }),
         }
       );
@@ -58,7 +58,7 @@ const DevxAI = () => {
       const result = await response.json();
 
       // Extract and use the response text
-      const aiResponse = result[0]?.generated_text || "I could not process that. Please try again with a different query.";
+      const aiResponse = result?.choices[0]?.text || "I could not process that. Please try again with a different query.";
 
       // Add AI response to chat
       setMessages((prev) => [
@@ -74,7 +74,7 @@ const DevxAI = () => {
         ...prev,
         {
           role: 'assistant',
-          content: "Mujhe abhi banaya jaa raha hai right now. Mere se mat puchho naa !!"
+          content: "I'm sorry, but I am currently unable to respond. Please try again later."
         },
       ]);
     } finally {
@@ -112,7 +112,7 @@ const DevxAI = () => {
           {isLoading && (
             <div className="flex justify-start">
               <div className="bg-gray-100 rounded-lg p-3 text-gray-800">
-                Thinking...
+                Processing...
               </div>
             </div>
           )}
