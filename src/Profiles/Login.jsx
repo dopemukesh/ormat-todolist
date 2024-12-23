@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { SecurityIcon } from '../assets/icons/icons';
 
 const Login = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const Login = ({ setIsAuthenticated }) => {
         setError('Invalid email or password');
       }
     } catch (err) {
-      setError('Login failed. Please try again.' + err);
+      setError('Login failed. Please try again.');
     }
   };
 
@@ -90,7 +89,6 @@ const Login = ({ setIsAuthenticated }) => {
                 value={formData.password}
                 onChange={handleChange}
               />
-              {/* <img src={EyeIcon} alt="" /> */}
             </div>
             <div>
               <NavLink 
