@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/gradient-ball-logo.svg';
+import logo from '../assets/ormat-circle-logo.svg';
 import update from '../assets/icons/update.svg';
 import packageJson from '../../package.json';
 

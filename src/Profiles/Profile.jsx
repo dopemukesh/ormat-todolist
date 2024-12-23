@@ -242,7 +242,7 @@ const Profile = () => {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-md"
+                                        className="px-4 py-2 text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 rounded-md"
                                     >
                                         Save
                                     </button>
@@ -284,7 +284,7 @@ const Profile = () => {
                             <div className="flex justify-end">
                                 <button
                                     onClick={() => setIsEditing(true)}
-                                    className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-md"
+                                    className="px-4 py-2 text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded-md"
                                 >
                                     Edit Profile
                                 </button>

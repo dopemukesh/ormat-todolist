@@ -121,7 +121,7 @@ const Signup = () => {
               />
             </div>
             <div>
-              <label htmlFor="confirmPassword" className="text-gray-800">Confirm Password</label>
+              {/* <label htmlFor="confirmPassword" className="text-gray-800">Confirm Password</label> */}
               <input
                 id="confirmPassword"
                 name="confirmPassword"
@@ -138,19 +138,19 @@ const Signup = () => {
           <div>
             <button
               type="submit"
-              className='flex justify-center items-center gap-2 rounded-lg bg-gray-900 active:bg-gray-700 border border-gray-600 w-full px-4 py-2.5 text-gray-100 text-sm whitespace-nowrap'
+              className='flex justify-center items-center gap-2 rounded-lg bg-gray-900 active:bg-gray-700 w-full px-4 py-2.5 text-white text-sm font-medium whitespace-nowrap'
             >
-              Sign Up
+              Register
             </button>
           </div>
 
           <div className="text-sm text-center">
-            <span className="text-gray-600">Already have an account? </span>
+            <span className="text-gray-600">Already have an account ? </span>
             <NavLink
               to="/login"
-              className="font-medium text-blue-500 hover:text-blue-600"
+              className="font-semibold text-gray-800"
             >
-              Sign in
+              Login
             </NavLink>
           </div>
         </form>

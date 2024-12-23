@@ -38,7 +38,7 @@ const App = () => {
           <Routes>
             {/* Public Routes */}
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/register" element={<Signup />} />
 
             {/* Protected Routes */}
             <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>

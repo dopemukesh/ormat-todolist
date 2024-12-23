@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const Login = ({ setIsAuthenticated }) => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -26,8 +27,8 @@ const Login = ({ setIsAuthenticated }) => {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       if (users.length === 0) {
         users.push({
-          email: 'admin@gmail.com',
-          password: 'admin'
+          email: 'admin12@gmail.com',
+          password: 'admin12'
         });
         localStorage.setItem('users', JSON.stringify(users));
       }
@@ -52,9 +53,9 @@ const Login = ({ setIsAuthenticated }) => {
       <div className="max-w-md flex-1 space-y-8 px-4">
         <div>
           <h2 className="text-2xl font-semibold text-gray-900">
-            Sign in
+            Welcome to Login
           </h2>
-          <p className='text-gray-600'>Enter your email and password to sign in</p>
+          <p className='text-gray-600'>Enter your email and password to login</p>
           {error && (
             <p className="mt-2 text-center text-sm text-red-600">
               {error}
@@ -77,23 +78,30 @@ const Login = ({ setIsAuthenticated }) => {
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className='relative'>
               <label htmlFor="password" className="text-gray-800">Password</label>
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 className="rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 outline-none focus:border-gray-400 focus:z-10 sm:text-sm"
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-[34px]  right-0 pr-3 flex items-center text-sm leading-5 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
             <div>
-              <NavLink 
+              <NavLink
                 to="/forgot-password"
-                className="text-sm text-blue-500 hover:text-blue-600"
+                className="text-sm text-purplex-500 hover:text-purplex-600"
               >
                 Forgot your password ?
               </NavLink>
@@ -103,19 +111,19 @@ const Login = ({ setIsAuthenticated }) => {
           <div>
             <button
               type="submit"
-              className='flex justify-center items-center gap-2 rounded-lg bg-gray-900 active:bg-gray-700 border border-gray-600 w-full px-4 py-2.5 text-gray-100 text-sm whitespace-nowrap'
+              className='flex justify-center items-center gap-2 rounded-lg bg-gray-900 active:bg-gray-700 w-full px-4 py-2.5 text-white text-sm font-medium whitespace-nowrap'
             >
-              Sign In
+              Login
             </button>
           </div>
 
           <div className="text-sm text-center">
-            <span className="text-gray-600">Don&apos;t have an account? </span>
-            <NavLink 
-              to="/signup"
-              className="font-medium text-blue-500 hover:text-blue-600"
+            <span className="text-gray-600">Don&apos;t have an account ? </span>
+            <NavLink
+              to="/register"
+              className="font-semibold text-gray-800"
             >
-              Sign up
+              Register
             </NavLink>
           </div>
         </form>
