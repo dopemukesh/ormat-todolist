@@ -29,34 +29,25 @@ const InputBox = ({ inputRef, add }) => {
 
   return (
     <>
-      <div className='flex flex-col w-full my-7 gap-2 bg-gray-50 border p-1 rounded-lg'>
+      <div className='flex flex-col w-full my-7 gap-2 bg-white dark:bg-gray-900 border dark:border-gray-700 p-1 rounded-lg'>
         <div className='flex items-center gap-2'>
           <input
             type="text"
             placeholder='Add your task'
-            className='w-full bg-white rounded-md border outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 text-sm focus:border-gray-300'
+            className='w-full bg-gray-50 dark:bg-gray-800 rounded-md border dark:border-gray-700 outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-gray-400 dark:placeholder:text-gray-600 text-sm focus:border-gray-300 dark:focus:border-gray-600'
             ref={inputRef}
           />
           <button
             onClick={() => setShowTimeSelector(!showTimeSelector)}
-            className='flex justify-center items-center gap-2 rounded-md bg-white active:bg-gray-200 border p-2 text-gray-600'
+            className='flex justify-center items-center gap-2 rounded-md bg-gray-50 dark:bg-gray-600 active:bg-gray-100 dark:active:bg-gray-700 border dark:border-gray-500 p-2 text-gray-600 dark:text-gray-400'
             title="Set expiration time"
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg> */}
             <img src={ClockIcon} alt="" />
           </button>
           <button
             onClick={handleAdd}
-            className='flex justify-center items-center gap-2 rounded-md bg-gray-900 active:bg-gray-700 border border-gray-600/40 px-4 py-2.5 text-gray-100 text-sm font-medium whitespace-nowrap'
+            className='flex justify-center items-center gap-2 rounded-md bg-gray-900 dark:bg-gray-700 active:bg-gray-800 dark:active:bg-gray-600 border border-gray-600/40 dark:border-gray-700/40 px-4 py-2.5 text-gray-100 dark:text-gray-200 text-sm font-medium whitespace-nowrap'
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-plus">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M8 12h8"></path>
-              <path d="M12 8v8"></path>
-            </svg> */}
             <p>Add Task</p>
           </button>
         </div>
@@ -69,18 +60,18 @@ const InputBox = ({ inputRef, add }) => {
               min="1"
               value={expirationTime}
               onChange={(e) => setExpirationTime(e.target.value)}
-              className='overflow-x-scroll w-9 max-w-16 flex-1 h-9 grid place-items-center bg-white rounded-md border outline-none text-sm'
+              className='overflow-x-scroll w-9 max-w-16 flex-1 h-9 grid place-items-center bg-gray-50 dark:bg-gray-800 rounded-md border dark:border-gray-700 outline-none text-sm'
             />
             <select
               value={timeUnit}
               onChange={(e) => setTimeUnit(e.target.value)}
-              className='bg-white rounded-md border outline-none h-9 px-2 text-sm overflow-hidden'
+              className='bg-gray-50 dark:bg-gray-800 rounded-md border dark:border-gray-700 outline-none h-9 px-2 text-sm overflow-hidden'
             >
-              <option value="hours">Hours</option>
-              <option value="minutes">Minutes</option>
-              <option value="seconds">Seconds</option>
+              <option value="hours" className='bg-gray-100'>Hours</option>
+              <option value="minutes" className='bg-gray-100'>Minutes</option>
+              <option value="seconds" className='bg-gray-100'>Seconds</option>
             </select>
-            <span className='w-full whitespace-nowrap text-[12px] text-rose-500 bg-rose-50 px-2 py-2 rounded-md border border-dashed border-rose-500 overflow-scroll'>
+            <span className='w-full whitespace-nowrap text-[12px] text-rose-500 dark:text-rose-500 bg-rose-50 dark:bg-rose-800/50 px-2 py-2 rounded-md border border-dashed border-rose-500 dark:border-rose-400 overflow-scroll'>
               {!showTimeSelector ? 'Default: 24 hours' : `Task will expire in ${expirationTime} ${timeUnit}`}
             </span>
           </div>

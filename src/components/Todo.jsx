@@ -128,13 +128,13 @@ const Todo = () => {
 
   return (
     <>
-      <div className='bg-white max-w-[1024px] flex-grow px-4 w-full sticky top-14'>
+      <div className='bg-white dark:bg-gray-900 max-w-[1024px] flex-grow px-4 w-full sticky top-14'>
 
         <InputBox add={add} inputRef={inputRef} />
 
         {/* ----- todo lists ----- */}
         <div
-          className={`lists overflow-y-scroll max-h-[656px] md:max-h-[556px] bg-gray-50 my-4 rounded-2xl flex flex-col gap-2 ${todoList.length > 0 ? 'p-1.5 border' : 'p-0'}`}>
+          className={`lists overflow-y-scroll max-h-[656px] md:max-h-[556px] bg-gray-50 dark:bg-gray-900 my-4 rounded-2xl flex flex-col gap-2 ${todoList.length > 0 ? 'p-1.5 border dark:border-gray-700' : 'p-0'}`}>
           {todoList.map((item) => (
             <TodoItems
               key={item.id}

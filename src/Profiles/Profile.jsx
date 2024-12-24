@@ -121,17 +121,17 @@ const Profile = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 w-full md:max-w-xl py-8 px-4 sm:px-6 select-none">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full md:max-w-xl py-8 px-4 sm:px-6 select-none">
             <div className="max-w-lg mx-auto">
-                <div className="bg-white shadow rounded-2xl p-6 overflow-clip border">
+                <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-clip">
                     <div className="flex justify-between items-center mb-6">
-                        <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
-                        <button
+                        {/* <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Profile</h1> */}
+                        {/* <button
                             onClick={handleLogout}
-                            className="text-sm text-red-600 hover:text-red-500"
+                            className="px-4 py-2 border border-rose-500 text-[12px] leading-3 text-rose-500 rounded whitespace-nowrap"
                         >
                             Logout
-                        </button>
+                        </button> */}
                     </div>
 
                     {error && (
@@ -146,7 +146,7 @@ const Profile = () => {
                             <img
                                 src={userData.profilePic || 'https://via.placeholder.com/150'}
                                 alt="Profile"
-                                className="w-32 h-32 rounded-full object-cover border-4 border-gray-200"
+                                className="w-32 h-32 rounded-full object-cover border-8 border-gray-200 dark:border-gray-700/50"
                             />
                             {isEditing && (
                                 <label className="absolute bottom-0 right-0 bg-emerald-500 p-2 rounded-full cursor-pointer hover:bg-emerald-600">
@@ -168,7 +168,7 @@ const Profile = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-4">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-600">
                                         Name
                                     </label>
                                     <input
@@ -177,12 +177,12 @@ const Profile = () => {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md outline-none border-gray-300 shadow-sm focus:border-emerald-500 p-2 border"
+                                        className="mt-1 block w-full rounded-md outline-none text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 focus:border-emerald-500 p-2 bg-white dark:bg-gray-700"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-600">
                                         Email
                                     </label>
                                     <input
@@ -191,12 +191,12 @@ const Profile = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="mt-1 block w-full rounded-md outline-none border-gray-300 shadow-sm focus:border-emerald-500 p-2 border"
+                                        className="mt-1 block w-full rounded-md outline-none text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 focus:border-emerald-500 p-2 bg-white dark:bg-gray-700"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                                    <label htmlFor="password" className="block text-sm font-medium text-gray-600">
                                         Password
                                     </label>
                                     <div className="relative">
@@ -206,12 +206,12 @@ const Profile = () => {
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
-                                            className="mt-1 block w-full rounded-md outline-none border-gray-300 shadow-sm focus:border-emerald-500 p-2 border"
+                                            className="mt-1 block w-full rounded-md outline-none text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 focus:border-emerald-500 p-2 bg-white dark:bg-gray-700"
                                         />
                                         <button
                                             type="button"
                                             onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 text-gray-500 hover:text-gray-700"
+                                            className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 text-gray-500 dark:hover:text-gray-500 hover:text-gray-700"
                                         >
                                             {showPassword ? "Hide" : "Show"}
                                         </button>
@@ -219,7 +219,7 @@ const Profile = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="bio" className="block text-sm font-medium text-gray-700">
+                                    <label htmlFor="bio" className="block text-sm font-medium text-gray-600">
                                         Bio
                                     </label>
                                     <textarea
@@ -228,7 +228,7 @@ const Profile = () => {
                                         rows={3}
                                         value={formData.bio}
                                         onChange={handleChange}
-                                        className="outline-none border-gray-300 shadow-sm focus:border-emerald-500 p-2 border mt-1 block w-full rounded-md "
+                                        className="mt-1 block w-full rounded-md outline-none text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 focus:border-emerald-500 p-2 bg-white dark:bg-gray-700"
                                     />
                                 </div>
 
@@ -252,24 +252,24 @@ const Profile = () => {
                     ) : (
                         <div className="space-y-4">
                             <div>
-                                <h3 className="text-sm font-medium text-gray-500">Name</h3>
-                                <p className="mt-1 text-sm text-gray-900">{userData.name}</p>
+                                <h3 className="text-sm font-medium text-gray-600">Name</h3>
+                                <p className="mt-1 text-sm text-gray-800 dark:text-white">{userData.name}</p>
                             </div>
 
                             <div>
-                                <h3 className="text-sm font-medium text-gray-500">Email</h3>
-                                <p className="mt-1 text-sm text-gray-900">{userData.email}</p>
+                                <h3 className="text-sm font-medium text-gray-600">Email</h3>
+                                <p className="mt-1 text-sm text-gray-800 dark:text-white">{userData.email}</p>
                             </div>
 
                             <div>
-                                <h3 className="text-sm font-medium text-gray-500">Password</h3>
+                                <h3 className="text-sm font-medium text-gray-600">Password</h3>
                                 <div className="relative">
-                                    <p className="mt-1 text-sm text-gray-900">
+                                    <p className="mt-1 text-sm text-gray-800 dark:text-white">
                                         {showPassword ? userData.password : '********'}
                                     </p>
                                     <button
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute top-0 right-0 text-sm text-gray-500 hover:text-gray-700"
+                                        className="absolute top-0 right-0 text-sm text-gray-600 dark:hover:text-gray-500 hover:text-gray-500"
                                     >
                                         {showPassword ? "Hide" : "Show"}
                                     </button>
@@ -277,16 +277,23 @@ const Profile = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-sm font-medium text-gray-500">Bio</h3>
-                                <p className="mt-1 text-sm text-gray-900 rounded-md">{userData.bio || 'No bio added yet.'}</p>
+                                <h3 className="text-sm font-medium text-gray-600">Bio</h3>
+                                <p className="mt-1 text-sm text-gray-800 dark:text-white rounded-md">{userData.bio || 'No bio added yet.'}</p>
                             </div>
 
-                            <div className="flex justify-end">
+                            <div className="flex justify-end space-x-2">
                                 <button
                                     onClick={() => setIsEditing(true)}
                                     className="px-4 py-2 text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded-md"
                                 >
                                     Edit Profile
+                                </button>
+
+                                <button
+                                    onClick={handleLogout}
+                                    className="px-4 py-2 text-sm font-medium text-white bg-rose-500 hover:bg-rose-600 rounded-md"
+                                >
+                                    Logout
                                 </button>
                             </div>
                         </div>

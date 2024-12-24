@@ -10,12 +10,12 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
   };
 
   return (
-    <header className='flex items-center justify-center sticky top-0 z-50 bg-white'>
+    <header className='flex items-center justify-center sticky top-0 z-50 bg-white dark:bg-gray-900'>
       {/* ----- logo ----- */}
-      <div className='flex flex-grow max-w-[1024px] flex-1 border-b-2 py-4 px-4 justify-between items-center'>
+      <div className='flex flex-grow max-w-[1024px] flex-1 lg:border lg:dark:border-gray-700 py-4 px-4 justify-between items-center bg-gray-50 dark:bg-gray-800/50 lg:rounded-xl'>
         <NavLink to='/' className='flex items-center gap-2'>
           <img src={logo} alt="" className='w-8 rounded-md rotate-center-alternate' />
-          <h1 className='text-lg font-bold text-focus-in-normal'>Ormat</h1>
+          <h1 className='text-lg text-gray-800 dark:text-white font-bold text-focus-in-normal'>Ormat</h1>
         </NavLink>
 
         <div className='flex items-center gap-2'>

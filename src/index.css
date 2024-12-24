@@ -19,6 +19,17 @@
   scroll-behavior: smooth;
 }
 
+.custom-dashed {
+  border: 4px dashed; /* Dashed border */
+  border-image: repeating-linear-gradient(
+      to right,
+      #ff5733 0,
+      #ff5733 10px,
+      transparent 10px,
+      transparent 20px
+    )
+    1;
+}
 
 /* Keyframes */
 @keyframes rotate-center-alternate {
