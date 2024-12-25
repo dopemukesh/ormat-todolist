@@ -34,19 +34,19 @@ const InputBox = ({ inputRef, add }) => {
           <input
             type="text"
             placeholder='Enter your task'
-            className='w-full bg-zinc-50 dark:bg-zinc-800 rounded-lg border dark:border-zinc-700 outline-none outline-offset-0 flex-1 py-2.5 px-4 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm focus:border-zinc-300 dark:focus:border-zinc-600'
+            className='w-full bg-zinc-50 dark:bg-zinc-800 rounded-lg border dark:border-zinc-700 outline-none outline-offset-0 flex-1 py-2 px-4 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm focus:border-zinc-300 dark:focus:border-zinc-600'
             ref={inputRef}
           />
           <button
             onClick={() => setShowTimeSelector(!showTimeSelector)}
-            className='flex justify-center items-center gap-2 rounded-lg bg-zinc-50 active:bg-zinc-100 dark:active:bg-zinc-200 border dark:border-zinc-500 p-2 text-zinc-600 dark:text-zinc-400'
+            className='flex justify-center items-center gap-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-700 active:bg-zinc-100 dark:active:bg-zinc-200 p-1.5 text-zinc-600 dark:text-zinc-400'
             title="Set expiration time"
           >
-            <img src={ClockIcon} alt="" />
+            <img src={ClockIcon} alt="" className='dark:invert'/>
           </button>
           <button
             onClick={handleAdd}
-            className='flex justify-center items-center gap-2 rounded-lg bg-zinc-900 dark:bg-white active:bg-zinc-800 dark:active:bg-zinc-200 border border-zinc-600/40 dark:border-zinc-700/40 px-4 py-2.5 text-zinc-100 dark:text-zinc-800 text-sm font-medium whitespace-nowrap'
+            className='flex justify-center items-center gap-2 rounded-lg bg-zinc-900 dark:bg-white active:bg-zinc-800 dark:active:bg-zinc-200 border border-zinc-600/40 dark:border-zinc-700/40 px-4 py-2 text-zinc-100 dark:text-zinc-800 text-sm whitespace-nowrap'
           >
             <p>Add Task</p>
           </button>
@@ -67,9 +67,9 @@ const InputBox = ({ inputRef, add }) => {
               onChange={(e) => setTimeUnit(e.target.value)}
               className='bg-zinc-50 dark:bg-zinc-800 rounded-md border dark:border-zinc-700 outline-none h-9 px-2 text-sm overflow-hidden'
             >
-              <option value="hours" className='bg-zinc-100'>Hours</option>
-              <option value="minutes" className='bg-zinc-100'>Minutes</option>
-              <option value="seconds" className='bg-zinc-100'>Seconds</option>
+              <option value="hours" className='bg-zinc-100 dark:bg-zinc-800'>Hours</option>
+              <option value="minutes" className='bg-zinc-100 dark:bg-zinc-800'>Minutes</option>
+              <option value="seconds" className='bg-zinc-100 dark:bg-zinc-800'>Seconds</option>
             </select>
             <span className='w-full whitespace-nowrap text-[12px] text-rose-500 dark:text-rose-500 bg-rose-50 dark:bg-rose-800/50 px-2 py-2 rounded-md border border-dashed border-rose-500 dark:border-rose-400 overflow-scroll'>
               {!showTimeSelector ? 'Default: 24 hours' : `Task will expire in ${expirationTime} ${timeUnit}`}
