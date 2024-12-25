@@ -83,13 +83,13 @@ const Histry = () => {
         <div className='bg-white flex flex-col flex-grow max-w-[1024px] flex-1 px-4 pb-12 select-none'>
             <div className='flex items-center gap-2 py-2'>
                 <NavLink to="/">
-                    <img src={BackIcon} alt="BackIcon" className="w-8 p-1 bg-gray-100 border rounded-md active:bg-gray-200" />
+                    <img src={BackIcon} alt="BackIcon" className="w-8 p-1 bg-zinc-100 border rounded-md active:bg-zinc-200" />
                 </NavLink>
             </div>
             <div className='grid md:grid-cols-2 md:place-items-start justify-center gap-8 mb-8'>
                 {/* Calendar Section */}
                 <div className='rounded-lg grid place-items-center'>
-                    <div className='bg-gray-50 w-full border-dashed border border-gray-200 p-4 rounded-xl'>
+                    <div className='bg-zinc-50 w-full border-dashed border border-zinc-200 p-4 rounded-xl'>
                         <Calendar
                             selectedDate={selectedDate}
                             onDateSelect={setSelectedDate}
@@ -114,9 +114,9 @@ const Histry = () => {
                     </div>
 
                     {expiredTasks.length === 0 ? (
-                        <p className='text-gray-500'>No expired tasks found for this date.</p>
+                        <p className='text-zinc-500'>No expired tasks found for this date.</p>
                     ) : (
-                        <div id='expiredTasks' className='space-y-4 bg-gray-50 p-1 rounded-xl border border-gray-200 overflow-y-scroll max-h-[500px]'>
+                        <div id='expiredTasks' className='space-y-4 bg-zinc-50 p-1 rounded-xl border border-zinc-200 overflow-y-scroll max-h-[500px]'>
                             {expiredTasks.map(task => (
                                 <div key={task.id} className="flex flex-col rounded-xl relative bg-rose-100 beforeAfterBorder_r opacity-75" >
                                     {/* Status Header */}
@@ -130,7 +130,7 @@ const Histry = () => {
                                                 {task.isComplete ? "COMPLETED" : "INCOMPLETE"}
                                             </span>
                                         </div>
-                                        <div className="bg-white px-2 py-[2px] rounded-[4px] border border-rose-300 text-gray-500">
+                                        <div className="bg-white px-2 py-[2px] rounded-[4px] border border-rose-300 text-zinc-500">
                                             {format(new Date(task.expiresAt), 'h:mm:ss a')}
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@ const Histry = () => {
                                     {/* Task Content */}
                                     <div className="z-[1] flex flex-1 rounded-xl p-2 border bg-white border-rose-300">
                                         <div className="relative flex items-start justify-between w-full">
-                                            <p className={`mx-2 flex self-center text-sm md:text-base break-words hyphens-auto select-none ${task.isComplete ? "line-through decoration-emerald-500 decoration-[1.5px] text-gray-400" : "text-gray-600"
+                                            <p className={`mx-2 flex self-center text-sm md:text-base break-words hyphens-auto select-none ${task.isComplete ? "line-through decoration-emerald-500 decoration-[1.5px] text-zinc-400" : "text-zinc-600"
                                                 }`}>
                                                 {task.text}
                                             </p>

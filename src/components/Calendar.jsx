@@ -11,7 +11,7 @@ const Calendar = ({ selectedDate, onDateSelect }) => {
         selected={selectedDate}
         onSelect={onDateSelect}
         footer={selectedDate ? (
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-zinc-600">
             You selected {format(selectedDate, 'PP')}
           </p>
         ) : null}

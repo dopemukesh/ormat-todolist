@@ -47,13 +47,13 @@ const Notification = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6">
+    <div className="min-h-screen bg-zinc-50 py-8 px-4 sm:px-6">
       <div className="max-w-lg mx-auto">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Notifications</h1>
+        <h1 className="text-2xl font-bold text-zinc-900 mb-6">Notifications</h1>
         
-        <div className="bg-white shadow rounded-lg divide-y divide-gray-200">
+        <div className="bg-white shadow rounded-lg divide-y divide-zinc-200">
           {notifications.length === 0 ? (
-            <div className="p-4 text-center text-gray-500">
+            <div className="p-4 text-center text-zinc-500">
               No notifications
             </div>
           ) : (
@@ -64,13 +64,13 @@ const Notification = () => {
               >
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-medium text-zinc-900">
                       {notification.title}
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-sm text-zinc-500">
                       {notification.message}
                     </p>
-                    <p className="mt-2 text-xs text-gray-400">
+                    <p className="mt-2 text-xs text-zinc-400">
                       {formatTimestamp(notification.timestamp)}
                     </p>
                   </div>

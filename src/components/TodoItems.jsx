@@ -68,15 +68,15 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
           <p> {isComplete ? "COMPLETED" : "IN PROGRESS"} </p>
 
           <div className='flex items-center gap-2'>
-            <span className={`bg-white dark:bg-gray-900 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-gray-300 dark:text-gray-600" : "border-yellow-300 text-gray-600 dark:text-gray-500"}`}>
+            {/* <span className={`bg-white dark:bg-zinc-900 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-zinc-300 dark:text-zinc-600" : "border-yellow-300 text-zinc-600 dark:text-zinc-500"}`}>
               Created: {format(new Date(id), 'h:mm a')}
-            </span>
+            </span> */}
 
-            <span className={`bg-white dark:bg-gray-900 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-gray-300 dark:text-gray-600" : "border-yellow-300 text-red-500"}`}>
+            <span className={`bg-white dark:bg-zinc-900 px-2 py-[2px] rounded-[4px] border ${isComplete ? "border-emerald-300 text-zinc-300 dark:text-zinc-600" : "border-yellow-300 text-red-500"}`}>
               Expires in: {timeLeft}
             </span>
 
-            <div className={`bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-gray-300 dark:text-gray-600" : "border-yellow-300 text-gray-600 dark:text-yellow-500"}`}>
+            <div className={`bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 px-2 py-[2px] rounded-[4px] border cursor-pointer select-none ${isComplete ? "border-emerald-300 text-zinc-300 dark:text-zinc-600" : "border-yellow-300 text-zinc-600 dark:text-yellow-500"}`}>
               <p onClick={handleEditClick}>Edit</p>
             </div>
           </div>
@@ -85,23 +85,23 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
 
         {/* editBox */}
         {showEditBox && (
-          <div className='fixed inset-0 grid place-items-center bg-gray-800 bg-opacity-20 backdrop-blur-sm z-[400]'>
-            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-xl border border-gray-400 bg-gray-100">
+          <div className='fixed inset-0 grid place-items-center bg-zinc-800 bg-opacity-20 backdrop-blur-sm dark:bg-zinc-900 dark:bg-opacity-50 z-[400]'>
+            <div className="editBox absolute  min-w-80 max-w-full flex-1 p-2 z-50 rounded-xl border dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
               {/* Editable Text Field */}
               <textarea
                 type="text"
                 value={editText}
                 placeholder='Your text will go here'
                 onChange={(e) => setEditText(e.target.value)}
-                className="w-full px-2 py-1 border outline-none outline-offset-0 flex-1 focus:border-emerald-500 rounded-md text-sm min-h-24"
+                className="w-full px-2 py-1 border dark:border-zinc-700 outline-none outline-offset-0 flex-1 focus:border-emerald-500 rounded-md text-sm min-h-24 dark:bg-zinc-800/50 dark:text-zinc-300 dark:focus:border-emerald-500 dark:placeholder:text-zinc-400"
               />
 
               <div className='updateBtns flex gap-2 mt-4 py-1'>
-                <div className={`bg-emerald-500 active:bg-emerald-400 hover:bg-emerald-600 px-3.5 py-1 rounded-md border border-emerald-600 text-white cursor-pointer select-none`}>
-                  <p onClick={handleSaveClick}>Save</p>
+                <div className="p-2.5 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-xs font-medium text-white rounded-md dark:text-zinc-800 whitespace-nowrap">
+                  <p onClick={handleSaveClick}>Save Changes</p>
                 </div>
 
-                <div className={`bg-rose-500 active:bg-rose-400 hover:bg-rose-600 px-3.5 py-1 rounded-md border border-rose-600 text-white cursor-pointer select-none`}>
+                <div className="p-2.5 dark:bg-zinc-800 hover:bg-zinc-200 bg-white dark:hover:bg-zinc-700 text-xs font-medium dark:text-white  text-zinc-800 rounded-md whitespace-nowrap">
                   <p onClick={handleCancelClick}>Cancel</p>
                 </div>
 
@@ -111,12 +111,12 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         )}
         {/* </div> */}
 
-        <div className={`z-[1] flex flex-1 rounded-xl p-2 border dark:border-gray-700 ${isComplete ? 'bg-white dark:bg-gray-800 border-emerald-300 dark:border-emerald-300' : 'border-yellow-300 dark:border-yellow-300 bg-white dark:bg-gray-800'}`}>
+        <div className={`z-[1] flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white dark:bg-zinc-800 border-emerald-300 dark:border-emerald-300' : 'border-yellow-300 dark:border-yellow-300 bg-white dark:bg-zinc-800'}`}>
 
 
           <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' />
           <div className='relative flex items-start justify-between w-full'>
-            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center dark:text-white text-sm md:text-base break-words hyphens-auto select-none ${isComplete ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-800"}`}>
+            <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto select-none ${isComplete ? "line-through text-zinc-400 dark:text-zinc-500" : "text-zinc-800 dark:text-white"}`}>
               {text}
             </p>
 
@@ -131,7 +131,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
                   onClick={() => onMoveItem(id, 'up')}
                   className='cursor-pointer select-none'
                 >
-                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-emerald-200 bg-emerald-100 md:hover:bg-emerald-200 active:bg-emerald-50'>
+                  <div className='group grid place-content-center h-7 w-7 rounded-md cursor-pointer border border-emerald-600 bg-emerald-500 md:hover:bg-emerald-600 active:bg-emerald-600'>
                     <img src={upArrow} alt="" />
                   </div>
                 </div>
@@ -140,14 +140,14 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
                   onClick={() => onMoveItem(id, 'down')}
                   className='cursor-pointer select-none'
                 >
-                  <div className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border border-rose-200  bg-rose-100 md:hover:bg-rose-200 active:bg-rose-50'>
+                  <div className='group grid place-content-center h-7 w-7 rounded-md cursor-pointer border border-rose-600  bg-rose-500 md:hover:bg-rose-600 active:bg-rose-600'>
                     <img src={dnArrow} alt="" />
                   </div>
                 </div>
               </div>
 
               {/* Delete button */}
-              <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-gray-100 hover:bg-gray-200 active:bg-rose-500'>
+              <div onClick={() => { deleteTodo(id) }} className='group grid place-content-center h-7 w-7 p-1 rounded-md cursor-pointer border bg-zinc-100 hover:bg-zinc-200 active:bg-rose-500'>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path className='group-active:stroke-white' d="M20.5001 6H3.5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" />
                   <path className='group-active:stroke-white' d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" />

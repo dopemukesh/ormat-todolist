@@ -7,13 +7,13 @@ import Histry from './components/Histry';
 import Header from './components/Header';
 import BottomBar from './components/BottomBar';
 import Settings from './components/Settings';
-import DevxAI from './AI/DevxAI';
 import Profile from './Profiles/Profile';
 import Notification from './Profiles/Notification';
 import Login from './Profiles/Login';
 import Signup from './Profiles/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
 import Error404 from './Errors/Error404';
+import ComingSoon from './AI/ComingSoon';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem('currentUser') ? true : false
@@ -46,7 +46,7 @@ const App = () => {
               <Route path="/" element={<Todo />} />
               <Route path="/histry" element={<Histry />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/devxAI" element={<DevxAI />} />
+              <Route path="/ai" element={<ComingSoon />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/notification" element={<Notification />} />
             </Route>
