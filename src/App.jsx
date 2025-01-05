@@ -14,6 +14,7 @@ import Signup from './Profiles/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
 import Error404 from './Errors/Error404';
 import ComingSoon from './AI/ComingSoon';
+import WebHome from './components/webComponents/WebHome';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem('currentUser') ? true : false
@@ -22,10 +23,11 @@ const App = () => {
   useEffect(() => {
     // Select the meta tag for the theme color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    const currentTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
 
-    // Set the theme color to white for light theme
+    // Set the theme color based on the current theme
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', '#ffffff');
+      metaThemeColor.setAttribute('content', currentTheme === 'light' ? '#ffffff' : '#131316');
     }
   }, []);
 
@@ -43,14 +45,15 @@ const App = () => {
             {/* Protected Routes */}
             <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
 
-              <Route path="/" element={<Todo />} />
+              <Route path="/" element={<WebHome />} />
+              <Route path="/todo" element={<Todo />} />
               <Route path="/histry" element={<Histry />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/ai" element={<ComingSoon />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/notification" element={<Notification />} />
             </Route>
-            
+
             {/* 404 Error Route */}
             <Route path="*" element={<Error404 />} />
           </Routes>

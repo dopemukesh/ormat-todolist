@@ -32,7 +32,7 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="z-50 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md text-white text-md w-11 h-11 overflow-hidden grid place-items-center rounded-xl"
+            className="z-50 bg-white dark:bg-gray-950 dark:hover:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md text-white text-md w-8 h-8 overflow-hidden grid place-items-center rounded-xl"
         >
             {theme === "dark" ? (
                 <div>
@@ -43,7 +43,7 @@ const ThemeToggle = () => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6 text-white"
+                        className="w-4 h-4 text-white"
                     >
                         <circle
                             cx="12"
@@ -67,7 +67,7 @@ const ThemeToggle = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 fill-zinc-400 stroke-zinc-400"
+                        className="w-4 h-4 fill-gray-400 stroke-gray-400"
                     >
                         <path
                             d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z"

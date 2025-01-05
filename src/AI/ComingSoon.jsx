@@ -10,7 +10,7 @@ const ComingSoon = () => {
             <div className="mt-6">
                 <NavLink
                     to="/"
-                    className='flex justify-center items-center gap-2 rounded-lg bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 active:bg-zinc-700 border border-zinc-600 w-full px-4 py-2.5 text-zinc-100 dark:text-zinc-800 text-sm whitespace-nowrap'
+                    className='flex justify-center items-center gap-2 rounded-lg bg-gray-900 dark:bg-white dark:hover:bg-gray-100 active:bg-gray-800 border border-gray-600 w-full px-4 py-2.5 text-gray-100 dark:text-gray-900 text-sm whitespace-nowrap'
                 >
                     Go Back
                 </NavLink>
