@@ -10,11 +10,11 @@ const WebHome = () => {
                 <p className="text-gray-500 dark:text-gray-500 text-center">
                     Create clear, multi-functional to-do lists to easily manage your ideas and work from anywhere so you never forget anything again.
                 </p>
-                <button className='flex justify-center items-center gap-2 rounded-lg bg-gray-950 dark:bg-white active:bg-gray-900 dark:active:bg-gray-200 border border-gray-600/40 dark:border-gray-800/40 px-4 py-2 text-gray-100 dark:text-gray-900 text-sm whitespace-nowrap'>
-                    <NavLink to="/todo">
+                <NavLink to="/todo">
+                    <button className='flex justify-center items-center gap-2 rounded-lg bg-gray-950 dark:bg-white active:bg-gray-900 dark:active:bg-gray-200 border border-gray-600/40 dark:border-gray-800/40 px-4 py-2 text-gray-100 dark:text-gray-900 text-sm whitespace-nowrap'>
                         Get Started
-                    </NavLink>
-                </button>
+                    </button>
+                </NavLink>
             </div>
         </div>
     )

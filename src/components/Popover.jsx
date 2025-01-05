@@ -25,9 +25,11 @@ const PopoverButton = () => {
                     <p className="text-center">
                         Your application is updated: <strong>v{packageJson.version}</strong>. You are already using updated app.
                     </p>
-                    <button className="flex justify-center items-center gap-2 rounded-lg bg-gray-950 dark:bg-white active:bg-gray-900 dark:active:bg-gray-200 border border-gray-600/40 dark:border-gray-800/40 px-4 py-2 text-gray-100 dark:text-gray-900 text-sm whitespace-nowrap">
-                        <NavLink to='/' reloadDocument>Close Now</NavLink>
-                    </button>
+                    <NavLink to='/' reloadDocument>
+                        <button className="flex justify-center items-center gap-2 rounded-lg bg-gray-950 dark:bg-white active:bg-gray-900 dark:active:bg-gray-200 border border-gray-600/40 dark:border-gray-800/40 px-4 py-2 text-gray-100 dark:text-gray-900 text-sm whitespace-nowrap">
+                            Close Now
+                        </button>
+                    </NavLink>
                 </div>
             )}
 

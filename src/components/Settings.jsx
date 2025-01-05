@@ -8,7 +8,7 @@ const Menu = () => {
     const [emailNotifications, setEmailNotifications] = useState(localStorage.getItem('emailNotifications') === 'true');
 
     // Retrieve user data from localStorage
-    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
     const handleNotificationToggle = () => {
         const newState = !notifications;

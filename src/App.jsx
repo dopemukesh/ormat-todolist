@@ -19,16 +19,22 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem('currentUser') ? true : false
   );
-
   useEffect(() => {
     // Select the meta tag for the theme color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    const currentTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+
+    // Retrieve the current theme from localStorage, defaulting to 'dark' if not found
+    const currentTheme = localStorage.getItem('theme') || 'dark';
 
     // Set the theme color based on the current theme
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', currentTheme === 'light' ? '#ffffff' : '#131316');
+      const themeColor = currentTheme === 'light' ? '#ffffff' : '#131316';
+      metaThemeColor.setAttribute('content', themeColor);
     }
+
+    // Apply the theme class to the body
+    document.body.classList.toggle('dark', currentTheme === 'dark');
+
   }, []);
 
   return (
