@@ -32,17 +32,17 @@ const Menu = () => {
             <div className="max-w-lg mx-auto">
                 {/* <h1 className="text-2xl font-bold text-gray-950 dark:text-white mb-6">Settings</h1> */}
 
-                <div className="bg-white dark:bg-gray-900 p-4 border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden space-y-3">
+                <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded-3xl overflow-hidden space-y-3">
 
                     {/* Profile Section */}
-                    <div className="p-2 bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800">
+                    <div className="p-2 border-b border-gray-300 dark:border-gray-800">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0 group">
                                     <img
                                         src={user?.profilePic || 'https://via.placeholder.com/150'}
                                         alt="Profile"
-                                        className="w-12 h-12 group-hover:scale-105 group-hover:rotate-12 transition-transform duration-800 rounded-full object-cover border-4 border-gray-200 dark:border-gray-600"
+                                        className="w-12 h-12 group-hover:scale-105 group-hover:rotate-12 transition-transform duration-800 rounded-full object-cover border-4 border-gray-200 dark:border-gray-800"
                                     />
                                 </div>
                                 <div className="ml-3">
@@ -59,7 +59,7 @@ const Menu = () => {
                     </div>
 
                     {/* Notifications Section */}
-                    <div className="p-2 opacity-40 pointer-events-none hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg">
+                    <div className="p-2 opacity-40 pointer-events-none hover:bg-gray-200 dark:hover:bg-gray-800/50 rounded-lg">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
@@ -98,7 +98,7 @@ const Menu = () => {
                     </div>
 
                     {/* Theme Section */}
-                    <div className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                    <div className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
@@ -120,7 +120,7 @@ const Menu = () => {
 
                     {/* Help Section */}
                     <div>
-                        <a href="mailto:dope.mukeshyadav@gmail.com" className="p-2 block hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg">
+                        <a href="mailto:dope.mukeshyadav@gmail.com" className="p-2 block hover:bg-gray-200 dark:hover:bg-gray-800/50 rounded-lg">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">

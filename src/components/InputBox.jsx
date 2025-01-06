@@ -29,20 +29,20 @@ const InputBox = ({ inputRef, add }) => {
 
   return (
     <>
-      <div className='flex flex-col w-full my-7 gap-2 bg-white dark:bg-gray-950 border dark:border-gray-800 p-1 rounded-xl'>
+      <div className='flex flex-col w-full my-7 gap-2 bg-gray-100 dark:bg-gray-950 border dark:border-gray-800 p-1 rounded-xl'>
         <div className='flex items-center gap-2'>
           <input
             type="text"
             placeholder='Enter your task'
-            className='w-full bg-gray-50 dark:bg-gray-900 rounded-lg border dark:border-gray-800 outline-none outline-offset-0 flex-1 py-2 px-4 placeholder:text-gray-400 dark:placeholder:text-gray-600 text-sm focus:border-gray-300 dark:focus:border-gray-600'
+            className='w-full bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 outline-none outline-offset-0 flex-1 py-2 px-4 placeholder:text-gray-400 dark:placeholder:text-gray-600 text-sm focus:border-gray-300 dark:focus:border-gray-600'
             ref={inputRef}
           />
           <button
             onClick={() => setShowTimeSelector(!showTimeSelector)}
-            className='flex justify-center items-center gap-2 rounded-lg bg-gray-50 dark:bg-gray-900 border dark:border-gray-800 active:bg-gray-100 dark:active:bg-gray-200 p-1.5 text-gray-600 dark:text-gray-400'
+            className='flex justify-center items-center gap-2 rounded-lg bg-white dark:bg-gray-800 border dark:border-gray-700 active:bg-gray-100 dark:active:bg-gray-700 p-1.5 text-gray-600 dark:text-gray-400'
             title="Set expiration time"
           >
-            <img src={ClockIcon} alt="" className='dark:invert'/>
+            <img src={ClockIcon} alt="" className='dark:invert' />
           </button>
           <button
             onClick={handleAdd}
@@ -71,7 +71,7 @@ const InputBox = ({ inputRef, add }) => {
               <option value="minutes" className='bg-gray-100 dark:bg-gray-900'>Minutes</option>
               <option value="seconds" className='bg-gray-100 dark:bg-gray-900'>Seconds</option>
             </select>
-            <span className='w-full whitespace-nowrap text-[12px] text-rose-500 dark:text-rose-500 bg-rose-50 dark:bg-rose-900/50 px-2 py-2 rounded-md border border-dashed border-rose-500 dark:border-rose-400 overflow-scroll'>
+            <span className='w-full whitespace-nowrap text-[12px] text-rose-500 dark:text-rose-500 bg-rose-50 dark:bg-rose-900/50 px-2 py-2 rounded-md border border-rose-500 dark:border-rose-500 overflow-scroll'>
               {!showTimeSelector ? 'Default: 24 hours' : `Task will expire in ${expirationTime} ${timeUnit}`}
             </span>
           </div>

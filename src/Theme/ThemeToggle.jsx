@@ -34,7 +34,7 @@ const ThemeToggle = ({ onClick: parentClickHandler }) => {
                 if (parentClickHandler) parentClickHandler(e); // Optionally handle parent click
             }}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            className="z-50 bg-white dark:bg-gray-950 dark:hover:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md text-white text-md w-8 h-8 grid place-items-center rounded-xl"
+            className="z-50 bg-white dark:bg-gray-950 dark:hover:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md text-white text-md w-8 h-8 grid place-items-center rounded-lg"
         >
             {theme === "dark" ? (
                 <svg

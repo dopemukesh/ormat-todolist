@@ -114,7 +114,14 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle, startEdit, cancel
         <div className={`z-[1] flex flex-1 rounded-xl p-2 border ${isComplete ? 'bg-white dark:bg-gray-900 border-emerald-300 dark:border-emerald-300' : 'border-yellow-300 dark:border-yellow-300 bg-white dark:bg-gray-900'}`}>
 
 
-          <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' />
+          <div onClick={() => { toggle(id) }}>
+            {isComplete ?
+              <img src={tick} className='h-7 cursor-pointer select-none' />
+              :
+              <img src={unTick} className='h-7 cursor-pointer select-none dark:opacity-20' />
+            }
+          </div>
+          {/* <img onClick={() => { toggle(id) }} src={isComplete ? tick : unTick} alt="" className='h-7 cursor-pointer select-none' /> */}
           <div className='relative flex items-start justify-between w-full'>
             <p className={`mx-2 decoration-[1.5px] decoration-emerald-500 flex self-center text-sm md:text-base break-words hyphens-auto select-none ${isComplete ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-white"}`}>
               {text}
