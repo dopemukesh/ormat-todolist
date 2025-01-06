@@ -11,7 +11,7 @@ const BottomBar = () => {
             <div className='fixed bottom-0 z-50 w-full flex sm:hidden justify-center  h-14 bg-white dark:bg-gray-950 shadow-up-lg shadow-gray-200/50 dark:shadow-gray-950/20'>
                 <div className='flex items-center justify-between w-full px-8'>
                     <div className='flex items-center justify-center w-14 h-14'>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'text-emerald-500' : 'text-gray-400 dark:text-gray-500'}>
+                        <NavLink to="/todo" className={({ isActive }) => isActive ? 'text-emerald-500' : 'text-gray-400 dark:text-gray-500'}>
                             {({ isActive }) => (
                                 <div className="flex flex-col items-center">
                                     {isActive ? (

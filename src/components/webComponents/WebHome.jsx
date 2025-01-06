@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const WebHome = () => {
     return (
         <div className="flex flex-col items-center md:justify-center min-h-svh px-4 max-w-[1024px]">
-            <div className='text-center mt-16 flex flex-col items-center justify-center gap-4 bg-gray-100 dark:bg-gray-900 p-4 rounded-xl dark:shadow-lg'>
+            <div className='text-center mt-16 flex flex-col items-center justify-center gap-4 p-4 rounded-xl dark:shadow-lg'> {/* bg-gray-100 dark:bg-gray-900 */}
                 <p className='select-none cursor-default text-sm text-purplex-500 dark:text-purplex-400 py-1 px-2 bg-purplex-50 dark:bg-purplex-800/50 border border-purplex-500 dark:border-purplex-400 rounded-md'>Now in beta</p>
                 <h1 className="text-gray-800 dark:text-gray-100 text-xl font-bold text-center lg:text-left md:text-4xl ">
                     Organize your to-do lists from
