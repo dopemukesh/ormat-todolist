@@ -12,15 +12,15 @@ export default {
         'up-lg': '0 -10px 15px rgba(0, 0, 0, 0.1)',
       },
       colors: {
-        gray: {
+        'gray': {
           50: '#FFFFFF',
-          100: '#F4F5F6',
-          200: '#E1E1E6',
-          300: '#D0D0D6',
-          400: '#A9A9B3',
-          500: '#686874',
-          600: '#41424B',
-          700: '#36363E',
+          100: '#F6F7F9',
+          200: '#EEEEF0',
+          300: '#D9DADE',
+          400: '#AEAEB1',
+          500: '#88898B',
+          600: '#5F5F60',
+          700: '#43434A',
           800: '#1F1F26',
           900: '#19191D',
           950: '#131316'
@@ -37,6 +37,14 @@ export default {
           800: '#460D79',
           900: '#350850',    // Darkest shade
           950: '#230330',    // Very Dark shade
+        },
+        'blue': {
+          400: '#4A90FF',    // Lightest shade
+          500: '#045FFB',    // Base color
+        },
+        'orange': {
+          400: '#F55734',    // Lightest shade
+          500: '#EB340C',    // Base color
         },
       },
     },
