@@ -46,7 +46,7 @@ const Menu = () => {
                                     />
                                 </div>
                                 <div className="ml-3">
-                                    <h3 className="text-md font-semibold text-gray-950 dark:text-gray-200">{user?.name || 'Guest'}</h3>
+                                    <h3 className="text-md font-semibold text-gray-950 dark:text-gray-200">{user?.name || 'Username'}</h3>
                                     <p className="text-sm text-gray-500 dark:text-gray-400">Manage your profile</p>
                                 </div>
                             </div>

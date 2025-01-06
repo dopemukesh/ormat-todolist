@@ -27,6 +27,7 @@ const Login = ({ setIsAuthenticated }) => {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       if (users.length === 0) {
         users.push({
+          name: 'Admin',
           email: 'admin12@gmail.com',
           password: 'admin12'
         });

@@ -8,7 +8,7 @@ import { AiChatIcon } from '../assets/icons/icons.jsx';
 const BottomBar = () => {
     return (
         <>
-            <div className='fixed bottom-0 z-50 w-full flex sm:hidden justify-center  h-14 bg-white dark:bg-gray-950 shadow-up-lg shadow-gray-200/50 dark:shadow-gray-950/20'>
+            <div className='fixed bottom-0 z-50 w-full flex sm:hidden justify-center rounded-t-3xl border-t-2 border-emerald-500 h-20 bg-white dark:bg-gray-950 shadow-up-lg shadow-emerald-100/50 dark:shadow-emerald-950/20'>
                 <div className='flex items-center justify-between w-full px-8'>
                     <div className='flex items-center justify-center w-14 h-14'>
                         <NavLink to="/todo" className={({ isActive }) => isActive ? 'text-emerald-500' : 'text-gray-400 dark:text-gray-500'}>
@@ -40,6 +40,12 @@ const BottomBar = () => {
                         </NavLink>
                     </div>
 
+                    {/* Popover button */}
+                    <div className='flex items-center justify-center rounded-full hover:shadow-xl active:shadow-xl hover:shadow-emerald-100 hover:dark:shadow-emerald-800 hover:border-b-2 border-emerald-500'>
+                        <PopoverButton />
+                    </div>
+
+                    {/* AI button */}
                     <div className='flex items-center justify-center w-14 h-14'>
                         <NavLink to="/ai" className={({ isActive }) => isActive ? 'text-emerald-500' : 'text-gray-400 dark:text-gray-500'}>
                             {({ isActive }) => (
@@ -65,7 +71,7 @@ const BottomBar = () => {
                                         // this icon is for light and dark mode theme
                                         <svg width="24" height="24" viewBox="0 0 24 24"
                                             className='fill-gray-400 dark:fill-gray-500' xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 2.03216L12.4681 3.63284C13.5862 7.45617 16.576 10.4459 20.3993 11.564L22 12.0322L20.3993 12.5003C16.576 13.6184 13.5862 16.6081 12.4681 20.4315L12 22.0322L11.5319 20.4315C10.4138 16.6081 7.42401 13.6184 3.60068 12.5003L2 12.0322L3.60068 11.564C7.42401 10.4459 10.4138 7.45617 11.5319 3.63284L12 2.03216Z"/>
+                                            <path d="M12 2.03216L12.4681 3.63284C13.5862 7.45617 16.576 10.4459 20.3993 11.564L22 12.0322L20.3993 12.5003C16.576 13.6184 13.5862 16.6081 12.4681 20.4315L12 22.0322L11.5319 20.4315C10.4138 16.6081 7.42401 13.6184 3.60068 12.5003L2 12.0322L3.60068 11.564C7.42401 10.4459 10.4138 7.45617 11.5319 3.63284L12 2.03216Z" />
                                             <path d="M15.7322 1.96826L16.1308 2.39045C17.083 3.39887 18.4835 3.85244 19.846 3.59367L20.4165 3.48534L19.9943 3.88397C18.9858 4.83611 18.5323 6.23658 18.791 7.59913L18.8994 8.16957L18.5007 7.74739C17.5486 6.73897 16.1481 6.2854 14.7856 6.54416L14.2151 6.6525L14.6373 6.25387C15.6457 5.30172 16.0993 3.90126 15.8405 2.53871L15.7322 1.96826Z" />
                                         </svg>
 
@@ -76,9 +82,9 @@ const BottomBar = () => {
                         </NavLink>
                     </div>
                 </div>
-                <div className='flex justify-center items-center h-10 w-10 absolute bottom-7 text-gray-100 dark:text-white'>
+                {/* <div className='flex justify-center items-center text-gray-100 dark:text-white'>
                     <PopoverButton />
-                </div>
+                </div> */}
 
             </div>
         </>
